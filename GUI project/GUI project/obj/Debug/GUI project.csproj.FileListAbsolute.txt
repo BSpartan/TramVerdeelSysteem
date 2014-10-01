@@ -1,0 +1,12 @@
+D:\Dropbox\Fontys\S-MW22\GUI project\GUI project\bin\Debug\GUI project.exe.config
+D:\Dropbox\Fontys\S-MW22\GUI project\GUI project\bin\Debug\GUI project.exe
+D:\Dropbox\Fontys\S-MW22\GUI project\GUI project\bin\Debug\GUI project.pdb
+D:\Dropbox\Fontys\S-MW22\GUI project\GUI project\obj\Debug\GUI project.csprojResolveAssemblyReference.cache
+D:\Dropbox\Fontys\S-MW22\GUI project\GUI project\obj\Debug\GUI_project.Form1.resources
+D:\Dropbox\Fontys\S-MW22\GUI project\GUI project\obj\Debug\GUI_project.Properties.Resources.resources
+D:\Dropbox\Fontys\S-MW22\GUI project\GUI project\obj\Debug\GUI project.csproj.GenerateResource.Cache
+D:\Dropbox\Fontys\S-MW22\GUI project\GUI project\obj\Debug\GUI project.exe
+D:\Dropbox\Fontys\S-MW22\GUI project\GUI project\obj\Debug\GUI project.pdb
+D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\3. Implemenatie\GUI project\GUI project\bin\Debug\GUI project.exe.config
+D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\3. Implemenatie\GUI project\GUI project\obj\Debug\GUI project.exe
+D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\3. Implemenatie\GUI project\GUI project\obj\Debug\GUI project.pdb
