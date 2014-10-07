@@ -10,3 +10,6 @@ D:\Dropbox\Fontys\S-MW22\GUI project\GUI project\obj\Debug\GUI project.pdb
 D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\3. Implemenatie\GUI project\GUI project\bin\Debug\GUI project.exe.config
 D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\3. Implemenatie\GUI project\GUI project\obj\Debug\GUI project.exe
 D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\3. Implemenatie\GUI project\GUI project\obj\Debug\GUI project.pdb
+C:\Users\Sebastiaan\Documents\GitHub\TramVerdeelSysteem\GUI project\GUI project\bin\Debug\GUI project.exe.config
+C:\Users\Sebastiaan\Documents\GitHub\TramVerdeelSysteem\GUI project\GUI project\obj\Debug\GUI project.exe
+C:\Users\Sebastiaan\Documents\GitHub\TramVerdeelSysteem\GUI project\GUI project\obj\Debug\GUI project.pdb
