@@ -8,5 +8,7 @@ namespace TVSLibrary
 {
     class Sector
     {
+        public bool Available { get; private set; }
+
     }
 }
