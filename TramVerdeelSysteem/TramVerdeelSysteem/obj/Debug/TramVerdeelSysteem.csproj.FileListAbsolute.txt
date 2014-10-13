@@ -1,2 +1,9 @@
 C:\Users\Sebastiaan\Documents\GitHub\TVSApplicatie\TramVerdeelSysteem\TramVerdeelSysteem\bin\Debug\TramVerdeelSysteem.exe.config
 C:\Users\Sebastiaan\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\bin\Debug\TramVerdeelSysteem.exe.config
+C:\Users\Sebastiaan\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\bin\Debug\TramVerdeelSysteem.exe
+C:\Users\Sebastiaan\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\bin\Debug\TramVerdeelSysteem.pdb
+C:\Users\Sebastiaan\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.csprojResolveAssemblyReference.cache
+C:\Users\Sebastiaan\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.Properties.Resources.resources
+C:\Users\Sebastiaan\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.csproj.GenerateResource.Cache
+C:\Users\Sebastiaan\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.exe
+C:\Users\Sebastiaan\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.pdb
