@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GUI_project
+namespace TramVerdeelSysteem
 {
-    public partial class BlockSector : Form
+    public partial class MainForm : Form
     {
-        public BlockSector()
+        public MainForm()
         {
             InitializeComponent();
         }

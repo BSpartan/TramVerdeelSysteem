@@ -1,4 +1,4 @@
-﻿namespace GUI_project
+﻿namespace TramVerdeelSysteem
 {
     partial class BlockSector
     {

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TramVerdeelSysteem
 {
-    public partial class Form1 : Form
+    public partial class BlockSector : Form
     {
-        public Form1()
+        public BlockSector()
         {
             InitializeComponent();
         }

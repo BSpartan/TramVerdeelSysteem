@@ -1,6 +1,6 @@
-﻿namespace GUI_project
+﻿namespace TramVerdeelSysteem
 {
-    partial class Form1
+    partial class InputForm
     {
         /// <summary>
         /// Required designer variable.
@@ -185,7 +185,6 @@
             this.rbTechAssistTrue.TabIndex = 0;
             this.rbTechAssistTrue.Text = "Ja";
             this.rbTechAssistTrue.UseVisualStyleBackColor = true;
-            this.rbTechAssistTrue.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // cbCleaning
             // 
@@ -236,7 +235,6 @@
             this.btnInput6.TabIndex = 12;
             this.btnInput6.Text = "6";
             this.btnInput6.UseVisualStyleBackColor = true;
-            this.btnInput6.Click += new System.EventHandler(this.button4_Click);
             // 
             // btnInput5
             // 
@@ -386,4 +384,3 @@
         private System.Windows.Forms.Label lbInput;
     }
 }
-

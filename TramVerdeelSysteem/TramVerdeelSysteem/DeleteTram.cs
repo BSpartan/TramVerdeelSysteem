@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GUI_project
+namespace TramVerdeelSysteem
 {
-    public partial class MainForm : Form
+    public partial class DeleteTram : Form
     {
-        public MainForm()
+        public DeleteTram()
         {
             InitializeComponent();
         }
