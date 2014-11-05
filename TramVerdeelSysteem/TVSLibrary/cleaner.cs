@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Oracle.DataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,39 @@ namespace TVSLibrary
             : base(userid, name)
         {
         }
-        public string[] GetCleaningList()
+        public static string[] GetCleaningList()
         {
-            //TODO
+            string[] cleaningList;
+            try
+            {
+                Database db = new Database();
+                db.CreateCommand("SELECT * FROM werknemer");
+
+                db.OpenConnection();
+                db.ExecuteCommand();
+
+                OracleDataReader dr = db.DataReader;
+
+                while(dr.Read())
+                {
+                    //dr.Read();
+                    int userId = dr.GetValueByColumn<int>("id");
+                    int workernumber = dr.GetValueByColumn<int>("workernumber");
+                    string firstname = dr.GetValueByColumn<string>("firstname");
+                    string lastname = dr.GetValueByColumn<string>("lastname");
+                    string phonenumber = dr.GetValueByColumn<string>("phonenumber");
+
+                    cleaningList
+                }
+
+                db.CloseConnection();
+                return cleaningList;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
+
             return null;
         }
         public void SetService(Tram tram)

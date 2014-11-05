@@ -48,7 +48,7 @@
             // 
             this.tbDeleteTram.Location = new System.Drawing.Point(12, 72);
             this.tbDeleteTram.Name = "tbDeleteTram";
-            this.tbDeleteTram.Size = new System.Drawing.Size(257, 22);
+            this.tbDeleteTram.Size = new System.Drawing.Size(360, 22);
             this.tbDeleteTram.TabIndex = 1;
             // 
             // btnCancelDelete
@@ -73,7 +73,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 198);
+            this.ClientSize = new System.Drawing.Size(384, 198);
             this.Controls.Add(this.btnDeleteTram);
             this.Controls.Add(this.btnCancelDelete);
             this.Controls.Add(this.tbDeleteTram);

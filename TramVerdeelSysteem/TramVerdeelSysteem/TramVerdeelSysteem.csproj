@@ -50,6 +50,12 @@
     <Compile Include="BlockSector.Designer.cs">
       <DependentUpon>BlockSector.cs</DependentUpon>
     </Compile>
+    <Compile Include="CleaningForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CleaningForm.Designer.cs">
+      <DependentUpon>CleaningForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DeleteTram.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,12 +76,30 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepairDoneForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RepairDoneForm.Designer.cs">
+      <DependentUpon>RepairDoneForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RepairForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RepairForm.Designer.cs">
+      <DependentUpon>RepairForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TramStatus.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TramStatus.Designer.cs">
       <DependentUpon>TramStatus.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CleaningForm.resx">
+      <DependentUpon>CleaningForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteTram.resx">
+      <DependentUpon>DeleteTram.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -85,6 +109,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RepairDoneForm.resx">
+      <DependentUpon>RepairDoneForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RepairForm.resx">
+      <DependentUpon>RepairForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
