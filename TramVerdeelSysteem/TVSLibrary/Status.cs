@@ -11,7 +11,6 @@ namespace TVSLibrary
         Cleaning,
         Defect,
         Parked,
-        Service,
-        Maintenance
+        Service
     }
 }

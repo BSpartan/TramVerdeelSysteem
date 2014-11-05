@@ -21,7 +21,7 @@ namespace TramVerdeelSysteem
 
         private void FillComboBox()
         {
-            foreach (Status s in (TVSLibrary.Status[]) Enum.GetValues(typeof(Status)))
+            foreach (Status s in (TVSLibrary.Status[])Enum.GetValues(typeof(Status)))
             {
                 cbStatus.Items.Add(s);
             }

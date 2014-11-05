@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TVSLibrary
 {
-    class Sector
+    public class Sector
     {
         public bool Available { get; private set; }
         public bool Blocked { get; private set; }
@@ -18,6 +18,8 @@ namespace TVSLibrary
         {
             this.Number = Number;
             this.Track = track;
+            this.Available = true;
+            this.Blocked = false;
         }
         public void SetTram(Tram tram)
         {

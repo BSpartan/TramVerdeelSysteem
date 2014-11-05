@@ -36,7 +36,7 @@ namespace TramVerdeelSysteem
         {
             if (e.ColumnIndex == 3)
             {
-                RepairDoneForm repairForm = new RepairDoneForm(Convert.ToInt16(dataGridView1[0, e.RowIndex].Value));
+                DoneForm repairForm = new DoneForm(Convert.ToInt16(dataGridView1[0, e.RowIndex].Value));
                 repairForm.Show();
             }
         }

@@ -44,7 +44,6 @@
             this.btnChangeStatus.TabIndex = 7;
             this.btnChangeStatus.Text = "Wijzigen";
             this.btnChangeStatus.UseVisualStyleBackColor = true;
-            this.btnChangeStatus.Click += new System.EventHandler(this.btnChangeStatus_Click);
             // 
             // btnCancelStatus
             // 
@@ -54,7 +53,6 @@
             this.btnCancelStatus.TabIndex = 6;
             this.btnCancelStatus.Text = "Annuleren";
             this.btnCancelStatus.UseVisualStyleBackColor = true;
-            this.btnCancelStatus.Click += new System.EventHandler(this.btnCancelStatus_Click);
             // 
             // tbStatusNumber
             // 

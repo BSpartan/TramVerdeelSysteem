@@ -1,6 +1,6 @@
 ﻿namespace TramVerdeelSysteem
 {
-    partial class RepairDoneForm
+    partial class DoneForm
     {
         /// <summary>
         /// Required designer variable.

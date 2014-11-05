@@ -29,11 +29,10 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Tramnummer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Commentaar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Klaar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.Tramnummer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Invoerdatum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,46 +43,15 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Tramnummer,
-            this.Status,
-            this.Commentaar,
-            this.Klaar});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 42);
+            this.Invoerdatum,
+            this.Status});
+            this.dataGridView1.Location = new System.Drawing.Point(12, 41);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(736, 379);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // Tramnummer
-            // 
-            this.Tramnummer.Frozen = true;
-            this.Tramnummer.HeaderText = "Tramnummer";
-            this.Tramnummer.Name = "Tramnummer";
-            this.Tramnummer.ReadOnly = true;
-            this.Tramnummer.Width = 120;
-            // 
-            // Status
-            // 
-            this.Status.Frozen = true;
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            this.Status.Width = 200;
-            // 
-            // Commentaar
-            // 
-            this.Commentaar.Frozen = true;
-            this.Commentaar.HeaderText = "Commentaar";
-            this.Commentaar.Name = "Commentaar";
-            this.Commentaar.ReadOnly = true;
-            this.Commentaar.Width = 300;
-            // 
-            // Klaar
-            // 
-            this.Klaar.Frozen = true;
-            this.Klaar.HeaderText = "Klaar";
-            this.Klaar.Name = "Klaar";
-            this.Klaar.ReadOnly = true;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // btnRefresh
             // 
@@ -93,6 +61,30 @@
             this.btnRefresh.TabIndex = 1;
             this.btnRefresh.Text = "Refresh lijst";
             this.btnRefresh.UseVisualStyleBackColor = true;
+            // 
+            // Tramnummer
+            // 
+            this.Tramnummer.Frozen = true;
+            this.Tramnummer.HeaderText = "Tramnummer";
+            this.Tramnummer.Name = "Tramnummer";
+            this.Tramnummer.ReadOnly = true;
+            this.Tramnummer.Width = 120;
+            // 
+            // Invoerdatum
+            // 
+            this.Invoerdatum.Frozen = true;
+            this.Invoerdatum.HeaderText = "Invoerdatum";
+            this.Invoerdatum.Name = "Invoerdatum";
+            this.Invoerdatum.ReadOnly = true;
+            this.Invoerdatum.Width = 150;
+            // 
+            // Status
+            // 
+            this.Status.Frozen = true;
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            this.Status.Width = 150;
             // 
             // CleaningForm
             // 
@@ -111,10 +103,9 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tramnummer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Commentaar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Klaar;
         private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tramnummer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Invoerdatum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
     }
 }
