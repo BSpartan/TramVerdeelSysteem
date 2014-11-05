@@ -53,9 +53,7 @@
     <Compile Include="Sector.cs" />
     <Compile Include="Status.cs" />
     <Compile Include="Track.cs" />
-    <Compile Include="Tram.cs">
-      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
-    </Compile>
+    <Compile Include="Tram.cs" />
     <Compile Include="TramDriver.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
