@@ -31,6 +31,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Phidget21.NET1.1">
       <HintPath>bin\Phidget21.NET1.1.dll</HintPath>
@@ -103,8 +107,14 @@
     <Compile Include="TramStatus.Designer.cs">
       <DependentUpon>TramStatus.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BlockSector.resx">
+      <DependentUpon>BlockSector.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CleaningForm.resx">
       <DependentUpon>CleaningForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteTram.resx">
+      <DependentUpon>DeleteTram.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DoneForm.resx">
       <DependentUpon>DoneForm.cs</DependentUpon>

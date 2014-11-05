@@ -16,5 +16,15 @@ namespace TramVerdeelSysteem
         {
             InitializeComponent();
         }
+
+        private void btnCancelDelete_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnDeleteTram_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

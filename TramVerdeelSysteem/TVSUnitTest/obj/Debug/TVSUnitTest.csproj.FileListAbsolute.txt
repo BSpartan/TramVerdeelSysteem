@@ -18,3 +18,14 @@ D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\git shit\Reservering\TVSUnitTest
 D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\git shit\Reservering\TVSUnitTest\obj\Debug\TVSUnitTest.csprojResolveAssemblyReference.cache
 D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\git shit\Reservering\TVSUnitTest\obj\Debug\TVSUnitTest.dll
 D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\git shit\Reservering\TVSUnitTest\obj\Debug\TVSUnitTest.pdb
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TVSUnitTest\bin\Debug\TVSUnitTest.dll
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TVSUnitTest\bin\Debug\TVSUnitTest.pdb
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TVSUnitTest\bin\Debug\TramVerdeelSysteem.exe
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TVSUnitTest\bin\Debug\TVSLibrary.dll
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TVSUnitTest\bin\Debug\Phidget21.NET1.1.dll
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TVSUnitTest\bin\Debug\Oracle.DataAccess.dll
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TVSUnitTest\bin\Debug\TramVerdeelSysteem.pdb
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TVSUnitTest\bin\Debug\TVSLibrary.pdb
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TVSUnitTest\obj\Debug\TVSUnitTest.csprojResolveAssemblyReference.cache
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TVSUnitTest\obj\Debug\TVSUnitTest.dll
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TVSUnitTest\obj\Debug\TVSUnitTest.pdb

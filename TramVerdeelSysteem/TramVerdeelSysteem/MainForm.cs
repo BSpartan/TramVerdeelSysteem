@@ -29,5 +29,11 @@ namespace TramVerdeelSysteem
             Reservation.FormClosed += (Sender, args) => this.UpdatelbReservations();
             Reservation.Show();
         }
+
+        private void veranderStatusToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TramStatus status = new TramStatus();
+            status.Show();
+        }
     }
 }

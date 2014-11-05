@@ -7,16 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TVSLibrary.Database;
 using TVSLibrary;
 
 namespace TramVerdeelSysteem
 {
     public partial class TramStatus : Form
     {
+        private DatabaseManager db;
+
         public TramStatus()
         {
             InitializeComponent();
             FillComboBox();
+            this.db = new DatabaseManager();
+            
         }
 
         private void FillComboBox()
@@ -27,15 +32,19 @@ namespace TramVerdeelSysteem
             }
         }
 
-        private void btnCancelStatus_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnChangeStatus_Click(object sender, EventArgs e)
+        private void btnChangeStatus_Click_1(object sender, EventArgs e)
         {
             string tramnummer = tbStatusNumber.Text;
+            string status = cbStatus.SelectedItem.ToString();
 
+            db.VeranderTramStatus(tramnummer, status);
+
+            tbStatusNumber.Clear();
+        }
+
+        private void btnCancelStatus_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

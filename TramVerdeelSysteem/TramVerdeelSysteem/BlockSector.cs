@@ -16,5 +16,16 @@ namespace TramVerdeelSysteem
         {
             InitializeComponent();
         }
+
+        private void btnCancelBlock_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnBlock_Click(object sender, EventArgs e)
+        {
+            string sectornumber = tbSectorNumber.Text;
+            string spoornumber = tbTrackNumber.Text;
+        }
     }
 }

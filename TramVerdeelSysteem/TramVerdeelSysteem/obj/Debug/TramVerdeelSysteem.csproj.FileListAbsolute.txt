@@ -29,3 +29,23 @@ D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\git shit\Reservering\TramVerdeel
 D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\git shit\Reservering\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.RepairForm.resources
 D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\git shit\Reservering\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.Reservation.resources
 D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\git shit\Reservering\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.csproj.GenerateResource.Cache
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\bin\Debug\TramVerdeelSysteem.exe.config
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\bin\Debug\TramVerdeelSysteem.exe
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\bin\Debug\TramVerdeelSysteem.pdb
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\bin\Debug\Phidget21.NET1.1.dll
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\bin\Debug\TVSLibrary.dll
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\bin\Debug\Oracle.DataAccess.dll
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\bin\Debug\TVSLibrary.pdb
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.csprojResolveAssemblyReference.cache
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.CleaningForm.resources
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.DoneForm.resources
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.MainForm.resources
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.Properties.Resources.resources
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.RepairForm.resources
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.Reservation.resources
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.TramStatus.resources
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.csproj.GenerateResource.Cache
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.exe
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.pdb
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.BlockSector.resources
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.DeleteTram.resources

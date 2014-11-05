@@ -31,6 +31,7 @@
             this.btnCancelDelete = new System.Windows.Forms.Button();
             this.btnDeleteTram = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
             // btnCancelDelete
             // 
             this.btnCancelDelete.Location = new System.Drawing.Point(127, 135);
@@ -39,6 +40,7 @@
             this.btnCancelDelete.TabIndex = 2;
             this.btnCancelDelete.Text = "Annuleren";
             this.btnCancelDelete.UseVisualStyleBackColor = true;
+            this.btnCancelDelete.Click += new System.EventHandler(this.btnCancelDelete_Click);
             // 
             // btnDeleteTram
             // 
@@ -48,6 +50,7 @@
             this.btnDeleteTram.TabIndex = 3;
             this.btnDeleteTram.Text = "Verwijderen";
             this.btnDeleteTram.UseVisualStyleBackColor = true;
+            this.btnDeleteTram.Click += new System.EventHandler(this.btnDeleteTram_Click);
             // 
             // DeleteTram
             // 
@@ -59,7 +62,6 @@
             this.Name = "DeleteTram";
             this.Text = "Tram verwijderen";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

@@ -44,6 +44,7 @@
             this.btnBlock.TabIndex = 7;
             this.btnBlock.Text = "Blokkeer";
             this.btnBlock.UseVisualStyleBackColor = true;
+            this.btnBlock.Click += new System.EventHandler(this.btnBlock_Click);
             // 
             // btnCancelBlock
             // 
@@ -53,6 +54,7 @@
             this.btnCancelBlock.TabIndex = 6;
             this.btnCancelBlock.Text = "Annuleren";
             this.btnCancelBlock.UseVisualStyleBackColor = true;
+            this.btnCancelBlock.Click += new System.EventHandler(this.btnCancelBlock_Click);
             // 
             // tbTrackNumber
             // 

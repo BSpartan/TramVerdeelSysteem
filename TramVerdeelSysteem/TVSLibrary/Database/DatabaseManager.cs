@@ -12,44 +12,98 @@ namespace TVSLibrary.Database
 {
     public class DatabaseManager
     {
-        private static OracleConnection connection;
+        private OracleConnection connection;
 
-        static DatabaseManager()
+        public DatabaseManager()
         {
             //Connects to the database Data source, under the username User Id.
-            connection = new OracleConnection("User Id= dbi298273; Password= PeKHcY2bu4; Data Source= //192.168.15.50:1521/fhictora;");
+            this.connection = new OracleConnection("User Id= dbi298273; Password= PeKHcY2bu4; Data Source= //192.168.15.50:1521/fhictora;");
         }
 
-        public static string GetRFIDFromTramNumber(int tramNumber)
+        public bool OpenConnection()
         {
-            connection.Open();
-
-            string RFID = "";
+            bool succes = false;
             try
             {
-                OracleCommand command = new OracleCommand("SELECT * FROM TRAM WHERE number = :pTramNumber");
-                command.CommandType = CommandType.Text;
-                command.Connection = connection;
-                command.Parameters.Add(":pTramNumber", tramNumber);
-
-                OracleDataReader reader = command.ExecuteReader();
-
-                reader.Read();
-
-                RFID = Convert.ToString(reader["RFID"]);
+                this.connection.Open();
+                succes = true;
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                Debug.WriteLine(e.Message);
+                Console.WriteLine(ex.Message);
+            }
+            return succes;
+        }
+
+        public bool CloseConnection()
+        {
+            bool succes = false;
+            try
+            {
+                this.connection.Close();
+                succes = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return succes;
+        }
+
+        public string GetRFIDFromTramNumber(int tramNumber)
+        {
+            string sql = "SELECT RFID FROM TRAM WHERE number = :pTramNumber";
+            OracleCommand com = new OracleCommand(sql, this.connection);
+            com.Parameters.Add(new OracleParameter("pTramNumber", tramNumber));
+            string rfid = "";
+            try
+            {
+                this.OpenConnection();
+                OracleDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    rfid = (reader["RFID"]).ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
             finally
             {
-                connection.Close();
+                this.CloseConnection();
             }
-            return RFID;
+
+            return rfid;
+            
+            //connection.Open();
+
+            //string RFID = "";
+            //try
+            //{
+            //    OracleCommand command = new OracleCommand("SELECT * FROM TRAM WHERE number = :pTramNumber");
+            //    command.CommandType = CommandType.Text;
+            //    command.Connection = connection;
+            //    command.Parameters.Add(":pTramNumber", tramNumber);
+
+            //    OracleDataReader reader = command.ExecuteReader();
+
+            //    reader.Read();
+
+            //    RFID = Convert.ToString(reader["RFID"]);
+            //}
+            //catch (Exception e)
+            //{
+            //    Debug.WriteLine(e.Message);
+            //}
+            //finally
+            //{
+            //    connection.Close();
+            //}
+            //return RFID;
         }
 
-        public static void ReserveSector(string RFID, int sectorNumber)
+        public void ReserveSector(string RFID, int sectorNumber)
         {
             connection.Open();
             try
@@ -69,6 +123,27 @@ namespace TVSLibrary.Database
             finally
             {
                 connection.Close();
+            }
+        }
+
+        public void VeranderTramStatus(string number, string status)
+        {
+            string sql = "UPDATE TRAM SET STATUS = :status WHERE TNUMBER = :number";
+            OracleCommand com = new OracleCommand(sql, connection);
+            com.Parameters.Add(new OracleParameter("status", status));
+            com.Parameters.Add(new OracleParameter("number", number));
+            try
+            {
+                this.OpenConnection();
+                com.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.Message);
+            }
+            finally
+            {
+                this.CloseConnection();
             }
         }
     }
