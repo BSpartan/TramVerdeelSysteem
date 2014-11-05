@@ -7,7 +7,7 @@ using Oracle.DataAccess.Client;
 
 namespace TVSLibrary.Database
 {
-    class DatabaseManager
+    public class DatabaseManager
     {
         private static OracleConnection connection;
 

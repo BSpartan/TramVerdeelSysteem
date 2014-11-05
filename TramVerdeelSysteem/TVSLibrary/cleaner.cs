@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TVSLibrary
 {
-    class Cleaner : User
+    public class Cleaner : User
     {
         public Cleaner(int userid, string name)
             : base(userid, name)
