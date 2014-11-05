@@ -10,6 +10,10 @@ namespace TVSLibrary
     {
         public string Name { get; private set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Remise" /> class.
+        /// </summary>
+        /// <param name="name">Name of the remise</param>
         public Remise(string name)
         {
             this.Name = name;

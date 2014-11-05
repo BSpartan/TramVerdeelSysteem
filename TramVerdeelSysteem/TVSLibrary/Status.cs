@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace TVSLibrary
 {
+    /// <summary>
+    /// Status of a tram
+    /// </summary>
     public enum Status
     {
         Cleaning,

@@ -5,8 +5,8 @@ using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Oracle.DataAccess.Client;
 using System.Diagnostics;
+using Oracle.DataAccess.Client;
 
 namespace TVSLibrary.Database
 {
@@ -14,12 +14,19 @@ namespace TVSLibrary.Database
     {
         private static OracleConnection connection;
 
+        /// <summary>
+        /// Initializes static members of the <see cref="DatabaseManager" /> class.
+        /// </summary>
         static DatabaseManager()
         {
-            //Connects to the database Data source, under the username User Id.
+            // Connects to the database Data source, under the username User Id.
             connection = new OracleConnection("User Id= dbi298273; Password= PeKHcY2bu4; Data Source= //192.168.15.50:1521/fhictora;");
         }
 
+        /// <summary>
+        /// Gets all reservations
+        /// </summary>
+        /// <returns>List of all reservations</returns>
         public static List<Reservation> GetReservations()
         {
             List<Reservation> reservations = new List<Reservation>();
@@ -36,10 +43,10 @@ namespace TVSLibrary.Database
 
                 while (reader.Read())
                 {
-                    string RFID = Convert.ToString(reader["RFID"]);
+                    string rfid = Convert.ToString(reader["RFID"]);
                     int trackID = Convert.ToInt16(reader["Track_ID"]);
 
-                    reservations.Add(new Reservation(trackID, RFID));
+                    reservations.Add(new Reservation(trackID, rfid));
                 }
             }
             catch (Exception e)
@@ -54,11 +61,16 @@ namespace TVSLibrary.Database
             return reservations;
         }
 
+        /// <summary>
+        /// Gets a RFID from a given tram number.
+        /// </summary>
+        /// <param name="tramNumber">tram number to find RFID for</param>
+        /// <returns>RFID of the tram</returns>
         public static string GetRFIDFromTramNumber(int tramNumber)
         {
             connection.Open();
 
-            string RFID = "";
+            string rfid = string.Empty;
             try
             {
                 OracleCommand command = new OracleCommand("SELECT * FROM TRAM WHERE TNumber = :pTramNumber");
@@ -70,7 +82,7 @@ namespace TVSLibrary.Database
 
                 reader.Read();
 
-                RFID = Convert.ToString(reader["RFID"]);
+                rfid = Convert.ToString(reader["RFID"]);
             }
             catch (Exception e)
             {
@@ -80,10 +92,16 @@ namespace TVSLibrary.Database
             {
                 connection.Close();
             }
-            return RFID;
+
+            return rfid;
         }
 
-        public static int GetTramNumberFromRFID(string RFID)
+        /// <summary>
+        /// Gets a tram number from a given RFID.
+        /// </summary>
+        /// <param name="rfid">RFID to find tram number for</param>
+        /// <returns>tram number</returns>
+        public static int GetTramNumberFromRFID(string rfid)
         {
             connection.Open();
 
@@ -93,7 +111,7 @@ namespace TVSLibrary.Database
                 OracleCommand command = new OracleCommand("SELECT * FROM TRAM WHERE RFID = :pRFID");
                 command.CommandType = CommandType.Text;
                 command.Connection = connection;
-                command.Parameters.Add(":pRFID", RFID);
+                command.Parameters.Add(":pRFID", rfid);
 
                 OracleDataReader reader = command.ExecuteReader();
 
@@ -109,9 +127,15 @@ namespace TVSLibrary.Database
             {
                 connection.Close();
             }
+
             return tramNumber;
         }
 
+        /// <summary>
+        /// Gets a trackID from a given track number.
+        /// </summary>
+        /// <param name="trackNumber">track number to find trackID for</param>
+        /// <returns>track ID</returns>
         public static int GetTrackIDFromNumber(int trackNumber)
         {
             connection.Open();
@@ -138,10 +162,16 @@ namespace TVSLibrary.Database
             {
                 connection.Close();
             }
+
             return trackID;
         }
 
-        public static int GetNumberFromTrackID(int TrackID)
+        /// <summary>
+        /// Gets a track number from a given trackID
+        /// </summary>
+        /// <param name="trackID">TrackID to get track number for</param>
+        /// <returns>Track number</returns>
+        public static int GetNumberFromTrackID(int trackID)
         {
             connection.Open();
 
@@ -151,7 +181,7 @@ namespace TVSLibrary.Database
                 OracleCommand command = new OracleCommand("SELECT * FROM TRACK WHERE ID = :pTrackID");
                 command.CommandType = CommandType.Text;
                 command.Connection = connection;
-                command.Parameters.Add(":pTrackID", TrackID);
+                command.Parameters.Add(":pTrackID", trackID);
 
                 OracleDataReader reader = command.ExecuteReader();
 
@@ -167,10 +197,16 @@ namespace TVSLibrary.Database
             {
                 connection.Close();
             }
+
             return trackNumber;
         }
-
-        public static void ReserveSector(string RFID, int trackID)
+        
+        /// <summary>
+        /// Reserves a track for a tram
+        /// </summary>
+        /// <param name="rfid">RFID of Tram to reserve for</param>
+        /// <param name="trackID">ID of track to reserve</param>
+        public static void ReserveTrack(string rfid, int trackID)
         {
             connection.Open();
             try
@@ -178,7 +214,7 @@ namespace TVSLibrary.Database
                 OracleCommand command = new OracleCommand("INSERT INTO RESERVATION (RFID, Track_ID) VALUES (:pRFID, :pTrack_ID)");
                 command.CommandType = CommandType.Text;
                 command.Connection = connection;
-                command.Parameters.Add(":pRFID", RFID);
+                command.Parameters.Add(":pRFID", rfid);
                 command.Parameters.Add(":pTrack_ID", trackID);
 
                 command.ExecuteNonQuery();
@@ -193,9 +229,30 @@ namespace TVSLibrary.Database
             }
         }
 
-        public static void RemoveReservation(string RFID)
+        /// <summary>
+        /// Removes a reservation.
+        /// </summary>
+        /// <param name="rfid">RFID of reservation to remove</param>
+        public static void RemoveReservation(string rfid)
         {
+            connection.Open();
+            try
+            {
+                OracleCommand command = new OracleCommand("DELETE FROM RESERVATION WHERE RFID = :pRFID");
+                command.CommandType = CommandType.Text;
+                command.Connection = connection;
+                command.Parameters.Add(":pRFID", rfid);
 
+                command.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
     }
 }
