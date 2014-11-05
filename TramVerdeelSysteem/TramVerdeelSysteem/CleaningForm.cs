@@ -17,13 +17,13 @@ namespace TramVerdeelSysteem
         {
             InitializeComponent();
 
-            List<TVSLibrary.CleaningList> cleaningList = TVSLibrary.Cleaner.GetCleaningList();
+            //List<TVSLibrary.CleaningList> cleaningList = TVSLibrary.Cleaner.GetCleaningList();
 
-            foreach(TVSLibrary.CleaningList cl in cleaningList)
-            {
-                string[] row = new string[] { cl.TramId.ToString(), cl.Datum.ToString(), cl.Status.ToString() };
-                dataGridView1.Rows.Add(row);
-            }
+            //foreach(TVSLibrary.CleaningList cl in cleaningList)
+            //{
+            //    string[] row = new string[] { cl.TramId.ToString(), cl.Datum.ToString(), cl.Status.ToString() };
+            //    dataGridView1.Rows.Add(row);
+            //}
 
             DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
             dataGridView1.Columns.Add(btn);

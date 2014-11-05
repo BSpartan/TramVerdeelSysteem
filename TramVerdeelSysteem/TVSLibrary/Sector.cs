@@ -18,6 +18,8 @@ namespace TVSLibrary
         {
             this.Number = Number;
             this.Track = track;
+            this.Available = true;
+            this.Blocked = false;
         }
         public void SetTram(Tram tram)
         {

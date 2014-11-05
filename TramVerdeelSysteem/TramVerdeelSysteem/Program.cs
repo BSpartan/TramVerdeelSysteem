@@ -16,7 +16,7 @@ namespace TramVerdeelSysteem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CleaningForm());
+            Application.Run(new MainForm());
         }
     }
 }
