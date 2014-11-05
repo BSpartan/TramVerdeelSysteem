@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TVSLibrary
 {
-    class LodgeEmployee : User
+    public class LodgeEmployee : User
     {
         public LodgeEmployee(int userid, string name)
             : base(userid, name)

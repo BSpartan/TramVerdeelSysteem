@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TVSLibrary
 {
-    class Remise
+    public class Remise
     {
         public string Name { get; private set; }
 

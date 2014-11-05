@@ -10,3 +10,22 @@ C:\Users\Sebastiaan\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramV
 C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\bin\Debug\TramVerdeelSysteem.exe.config
 C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.exe
 C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.pdb
+C:\Users\Sebastiaan\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.MainForm.resources
+C:\Users\Sebastiaan\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.Reservation.resources
+C:\Users\Sebastiaan\Dropbox\Proftaken\Maatwerk Proftaak\PTS21\git shit\Reservering\TramVerdeelSysteem\bin\Debug\TramVerdeelSysteem.exe.config
+C:\Users\Sebastiaan\Dropbox\Proftaken\Maatwerk Proftaak\PTS21\git shit\Reservering\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.exe
+C:\Users\Sebastiaan\Dropbox\Proftaken\Maatwerk Proftaak\PTS21\git shit\Reservering\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.csprojResolveAssemblyReference.cache
+C:\Users\Sebastiaan\Dropbox\Proftaken\Maatwerk Proftaak\PTS21\git shit\Reservering\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.MainForm.resources
+C:\Users\Sebastiaan\Dropbox\Proftaken\Maatwerk Proftaak\PTS21\git shit\Reservering\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.Properties.Resources.resources
+C:\Users\Sebastiaan\Dropbox\Proftaken\Maatwerk Proftaak\PTS21\git shit\Reservering\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.Reservation.resources
+C:\Users\Sebastiaan\Dropbox\Proftaken\Maatwerk Proftaak\PTS21\git shit\Reservering\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.csproj.GenerateResource.Cache
+D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\git shit\Reservering\TramVerdeelSysteem\bin\Debug\TramVerdeelSysteem.exe.config
+D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\git shit\Reservering\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.exe
+D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\git shit\Reservering\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.csprojResolveAssemblyReference.cache
+D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\git shit\Reservering\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.CleaningForm.resources
+D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\git shit\Reservering\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.DoneForm.resources
+D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\git shit\Reservering\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.MainForm.resources
+D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\git shit\Reservering\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.Properties.Resources.resources
+D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\git shit\Reservering\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.RepairForm.resources
+D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\git shit\Reservering\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.Reservation.resources
+D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\git shit\Reservering\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.csproj.GenerateResource.Cache

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TVSLibrary
 {
-    class Manager : User
+    public class Manager : User
     {
         public Manager(int userid, string name)
             : base(userid, name)

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TVSLibrary
 {
-    class Track
+    public class Track
     {
         public int Length { get; private set; }
         public int Number { get; private set; }

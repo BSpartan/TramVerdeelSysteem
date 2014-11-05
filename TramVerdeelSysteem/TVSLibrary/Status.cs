@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TVSLibrary
 {
-    enum Status
+    public enum Status
     {
         Cleaning,
         Defect,
