@@ -29,3 +29,4 @@ D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\git shit\Reservering\TramVerdeel
 D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\git shit\Reservering\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.RepairForm.resources
 D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\git shit\Reservering\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.Reservation.resources
 D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\git shit\Reservering\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.csproj.GenerateResource.Cache
+C:\Users\Derp\Desktop\School\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\bin\Debug\TramVerdeelSysteem.exe.config

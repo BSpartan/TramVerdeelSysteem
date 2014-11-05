@@ -40,7 +40,7 @@ namespace TVSLibrary
         {
             this.Tramdriver = tramdriver;
         }
-        public void SortTram(List<Sector> AllSectors)
+        public int SortTram(List<Sector> AllSectors)
         {
             bool trackset = false;
             Sector current = null;
@@ -270,6 +270,7 @@ namespace TVSLibrary
                 }
             }
             this.Sector = current;
+            return Sector.ID;
         }
     }
 }

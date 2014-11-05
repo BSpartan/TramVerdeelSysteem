@@ -13,9 +13,11 @@ namespace TVSLibrary
         public int Number { get; private set; }
         public Track Track { get; private set; }
         public Tram Tram { get; private set; }
+        public int ID { get; private set; }
 
-        public Sector(int Number, Track track)
+        public Sector(int ID, int Number, Track track)
         {
+            this.ID = ID;
             this.Number = Number;
             this.Track = track;
             this.Available = true;
