@@ -29,3 +29,11 @@ D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\git shit\Reservering\TramVerdeel
 D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\git shit\Reservering\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.RepairForm.resources
 D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\git shit\Reservering\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.Reservation.resources
 D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\git shit\Reservering\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.csproj.GenerateResource.Cache
+C:\Users\Sebastiaan\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\bin\Debug\Phidget21.NET1.1.dll
+C:\Users\Sebastiaan\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\bin\Debug\TVSLibrary.dll
+C:\Users\Sebastiaan\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\bin\Debug\Oracle.DataAccess.dll
+C:\Users\Sebastiaan\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\bin\Debug\TVSLibrary.pdb
+C:\Users\Sebastiaan\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.CleaningForm.resources
+C:\Users\Sebastiaan\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.DoneForm.resources
+C:\Users\Sebastiaan\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.RepairForm.resources
+C:\Users\Sebastiaan\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.TramStatus.resources
