@@ -19,3 +19,14 @@ C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdee
 C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.RepairForm.resources
 C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.csproj.GenerateResource.Cache
 C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.RepairDoneForm.resources
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\bin\Debug\TramVerdeelSysteem.exe.config
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.exe
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.pdb
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.csprojResolveAssemblyReference.cache
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.CleaningForm.resources
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.DeleteTram.resources
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.Properties.Resources.resources
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.RepairDoneForm.resources
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.RepairForm.resources
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.TramStatus.resources
+E:\Gebruiker\Documenten\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.csproj.GenerateResource.Cache
