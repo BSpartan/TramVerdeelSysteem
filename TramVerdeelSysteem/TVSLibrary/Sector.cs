@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TVSLibrary
 {
-    class Sector
+    public class Sector
     {
         public bool Available { get; private set; }
         public bool Blocked { get; private set; }

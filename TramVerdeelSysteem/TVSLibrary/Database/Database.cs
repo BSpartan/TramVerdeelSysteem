@@ -11,8 +11,8 @@ namespace TVSLibrary
 {
     public class Database
     {
-		private string dbLogin = "SE22";
-        private string dbPassword = "SE22";
+		private string dbLogin = "PTS2";
+        private string dbPassword = "PTS2";
 		//DB-bjork
         //private string dbLogin = "dbi314086";
         //private string dbPassword = "qsdmj2v6RT";

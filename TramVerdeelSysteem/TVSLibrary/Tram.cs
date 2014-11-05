@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TVSLibrary
 {
-    class Tram
+    public class Tram
     {
         public Sector Sector { get; private set; }
         public Status Status { get; private set; }

@@ -1,0 +1,6 @@
+C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TVSLibrary\obj\Debug\TVSLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TVSLibrary\bin\Debug\TVSLibrary.dll
+C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TVSLibrary\bin\Debug\TVSLibrary.pdb
+C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TVSLibrary\bin\Debug\Oracle.DataAccess.dll
+C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TVSLibrary\obj\Debug\TVSLibrary.dll
+C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TVSLibrary\obj\Debug\TVSLibrary.pdb

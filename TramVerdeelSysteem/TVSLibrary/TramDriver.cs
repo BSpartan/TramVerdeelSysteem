@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TVSLibrary
 {
-    class TramDriver : User
+    public class TramDriver : User
     {
         public TramDriver(int userid, string name)
             : base(userid, name)

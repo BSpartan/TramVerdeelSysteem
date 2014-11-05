@@ -18,4 +18,7 @@ C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdee
 C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.Properties.Resources.resources
 C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.RepairForm.resources
 C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.csproj.GenerateResource.Cache
-C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.RepairDoneForm.resources
+C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\bin\Debug\TVSLibrary.dll
+C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\bin\Debug\Oracle.DataAccess.dll
+C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\bin\Debug\TVSLibrary.pdb
+C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.DoneForm.resources

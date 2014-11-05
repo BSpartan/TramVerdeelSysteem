@@ -7,19 +7,19 @@ using System.Threading.Tasks;
 
 namespace TVSLibrary
 {
-    class Cleaner : User
+    public class Cleaner : User
     {
         public Cleaner(int userid, string name)
             : base(userid, name)
         {
         }
-        public static string[] GetCleaningList()
+        public static List<CleaningList> GetCleaningList()
         {
-            string[] cleaningList;
+            List<CleaningList> cleaningList = new List<CleaningList>();
             try
             {
                 Database db = new Database();
-                db.CreateCommand("SELECT * FROM werknemer");
+                db.CreateCommand("SELECT * FROM TRAM_MAINTENANCE WHERE MaintenanceType = 'Defect'");
 
                 db.OpenConnection();
                 db.ExecuteCommand();
@@ -29,13 +29,11 @@ namespace TVSLibrary
                 while(dr.Read())
                 {
                     //dr.Read();
-                    int userId = dr.GetValueByColumn<int>("id");
-                    int workernumber = dr.GetValueByColumn<int>("workernumber");
-                    string firstname = dr.GetValueByColumn<string>("firstname");
-                    string lastname = dr.GetValueByColumn<string>("lastname");
-                    string phonenumber = dr.GetValueByColumn<string>("phonenumber");
+                    int RFID = dr.GetValueByColumn<int>("RFID");
+                    DateTime dateTime = dr.GetValueByColumn<DateTime>("DateTime");
+                    Status status = Status.Defect;
 
-                    cleaningList
+                    cleaningList.Add(new CleaningList(RFID, dateTime, status));
                 }
 
                 db.CloseConnection();

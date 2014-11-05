@@ -44,7 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cleaner.cs" />
-    <Compile Include="Database\DatabaseManager.cs" />
+    <Compile Include="CleaningList.cs" />
+    <Compile Include="Database\Database.cs" />
+    <Compile Include="Database\DataReaderExtensions.cs" />
     <Compile Include="LodgeEmployee.cs" />
     <Compile Include="Manager.cs" />
     <Compile Include="Mechanic.cs" />

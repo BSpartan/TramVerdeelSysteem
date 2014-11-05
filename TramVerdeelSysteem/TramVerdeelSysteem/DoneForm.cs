@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TramVerdeelSysteem
 {
-    public partial class RepairDoneForm : Form
+    public partial class DoneForm : Form
     {
-        public RepairDoneForm(int tramNumber)
+        public DoneForm(int tramNumber)
         {
             InitializeComponent();
             tbTramNumber.Text = tramNumber.ToString();
