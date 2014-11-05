@@ -10,3 +10,6 @@ C:\Users\Sebastiaan\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramV
 C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\bin\Debug\TramVerdeelSysteem.exe.config
 C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.exe
 C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.pdb
+C:\Users\Derp\Desktop\School\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\bin\Debug\TramVerdeelSysteem.exe.config
+C:\Users\Derp\Desktop\School\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.exe
+C:\Users\Derp\Desktop\School\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.pdb
