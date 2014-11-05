@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Phidget21.NET1.1">
+      <HintPath>bin\Phidget21.NET1.1.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -50,6 +53,30 @@
     <Compile Include="BlockSector.Designer.cs">
       <DependentUpon>BlockSector.cs</DependentUpon>
     </Compile>
+    <Compile Include="CleaningForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CleaningForm.designer.cs">
+      <DependentUpon>CleaningForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoneForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoneForm.designer.cs">
+      <DependentUpon>DoneForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputForm.Designer.cs">
+      <DependentUpon>InputForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RepairForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RepairForm.designer.cs">
+      <DependentUpon>RepairForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reservation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,12 +88,6 @@
     </Compile>
     <Compile Include="DeleteTram.Designer.cs">
       <DependentUpon>DeleteTram.cs</DependentUpon>
-    </Compile>
-    <Compile Include="InputForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="InputForm.Designer.cs">
-      <DependentUpon>InputForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -82,6 +103,12 @@
     <Compile Include="TramStatus.Designer.cs">
       <DependentUpon>TramStatus.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CleaningForm.resx">
+      <DependentUpon>CleaningForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoneForm.resx">
+      <DependentUpon>DoneForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -94,8 +121,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RepairForm.resx">
+      <DependentUpon>RepairForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reservation.resx">
       <DependentUpon>Reservation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TramStatus.resx">
+      <DependentUpon>TramStatus.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

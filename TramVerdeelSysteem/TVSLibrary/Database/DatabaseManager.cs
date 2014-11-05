@@ -24,7 +24,7 @@ namespace TVSLibrary.Database
         {
             connection.Open();
 
-            string RFID;
+            string RFID = "";
             try
             {
                 OracleCommand command = new OracleCommand("SELECT * FROM TRAM WHERE number = :pTramNumber");

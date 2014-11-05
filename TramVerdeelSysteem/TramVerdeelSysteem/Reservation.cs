@@ -21,7 +21,7 @@ namespace TramVerdeelSysteem
         private void btnReserveSector_Click(object sender, EventArgs e)
         {
 
-            DatabaseManager.ReserveSector(dtbReservationTramNumber, tbReservationSectorNumber)
+            //DatabaseManager.ReserveSector(dtbReservationTramNumber, tbReservationSectorNumber);
 
         }
 
