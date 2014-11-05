@@ -16,3 +16,9 @@ D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\git shit\Reservering\TVSLibrary\
 D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\git shit\Reservering\TVSLibrary\obj\Debug\TVSLibrary.csprojResolveAssemblyReference.cache
 D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\git shit\Reservering\TVSLibrary\obj\Debug\TVSLibrary.dll
 D:\Dropbox\Fontys\S-MW22\Proftaak S-MW22C\PTS21\git shit\Reservering\TVSLibrary\obj\Debug\TVSLibrary.pdb
+C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TVSLibrary\bin\Debug\TVSLibrary.dll
+C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TVSLibrary\bin\Debug\TVSLibrary.pdb
+C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TVSLibrary\bin\Debug\Oracle.DataAccess.dll
+C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TVSLibrary\obj\Debug\TVSLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TVSLibrary\obj\Debug\TVSLibrary.dll
+C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TVSLibrary\obj\Debug\TVSLibrary.pdb

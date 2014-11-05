@@ -8,18 +8,20 @@ namespace TVSLibrary
 {
     public class Mechanic : User
     {
+        Database.DatabaseManager dbm = new Database.DatabaseManager();
+
         public Mechanic(int userid, string name)
             : base(userid, name)
         {
         }
-        public string[] GetRepairList()
+        public List<RepairCleanList> GetRepairList()
         {
-            //TODO
-            return null;
+            return dbm.GetCleaningList(false);
         }
-        public void SetService(Tram tram)
+        public void SetService(int RFID, int id)
         {
-            tram.SetStatus(Status.Service);
+            dbm.SetService(id, false);
+            //tram.SetStatus(Status.Service);
         }
     }
 }

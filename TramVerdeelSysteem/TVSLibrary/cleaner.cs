@@ -8,18 +8,19 @@ namespace TVSLibrary
 {
     public class Cleaner : User
     {
+        Database.DatabaseManager dbm = new Database.DatabaseManager();
         public Cleaner(int userid, string name)
             : base(userid, name)
         {
         }
-        public string[] GetCleaningList()
+        public List<RepairCleanList> GetCleaningList()
         {
-            //TODO
-            return null;
+            return dbm.GetCleaningList(true);
         }
-        public void SetService(Tram tram)
+        public void SetService(int RFID, int id)
         {
-            tram.SetStatus(Status.Service);
+            dbm.SetService(id, true);
+            //tram.SetStatus(Status.Service);
         }
     }
 }
