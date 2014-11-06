@@ -55,7 +55,12 @@ namespace TVSLibrary
         {
             this.Tramdriver = tramdriver;
         }
-
+        /// <summary>
+        /// adds the tram to the maintenance table if needed.
+        /// </summary>
+        /// <param name="tram">what tram</param>
+        /// <param name="schoonmaak">in need of cleaning</param>
+        /// <param name="reparatie">in need of repair</param>
         public void AddMaintenace(Tram tram, bool schoonmaak, bool reparatie)
         {
             if(schoonmaak)

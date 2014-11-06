@@ -80,7 +80,6 @@ namespace TVSLibrary.Database
         /// <param name="status">Status that needs to be added to the Tram</param>
         internal void AddMaintenace(string rfid, Status status)
         {
-
             OracleCommand command = new OracleCommand("INSERT INTO TRAM_MAINTENANCE (ID,RFID, \"DateTime\" ,MaintenanceType) VALUES (MAINTENANCESEQ.NEXTVAL,:pRFID, SYSDATE,:Type)");
             command.CommandType = CommandType.Text;
             command.Connection = connection;
@@ -102,7 +101,11 @@ namespace TVSLibrary.Database
                 connection.Close();
             }
         }
-
+        /// <summary>
+        /// returns tramtype
+        /// </summary>
+        /// <param name="rfid">determines the tram</param>
+        /// <returns>tram type</returns>
         internal string GetTramByRfid(string rfid)
         {
             connection.Open();
