@@ -8,17 +8,34 @@ namespace TVSLibrary
 {
     public class Cleaner : User
     {
+        Database.DatabaseManager dbm = new Database.DatabaseManager();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Cleaner" /> class.
+        /// </summary>
+        /// <param name="userid">ID of the user</param>
+        /// <param name="name">Name of the User</param>
         public Cleaner(int userid, string name)
             : base(userid, name)
         {
         }
-        public string[] GetCleaningList()
+
+        /// <summary>
+        /// Returns a list of cleanings the cleaner has to do.
+        /// </summary>
+        /// <returns>List of cleanings</returns>
+        public List<RepairCleanList> GetCleaningList()
         {
-            //TODO
-            return null;
+            return dbm.GetCleaningList(true);
         }
-        public void SetService(Tram tram)
+
+        /// <summary>
+        /// Sets the tram to 'Service'.
+        /// </summary>
+        /// <param name="tram">The tram to set the status of.</param>
+        public void SetService(int id,Tram tram)
         {
+            dbm.SetService(id);
             tram.SetStatus(Status.Service);
         }
     }

@@ -8,10 +8,14 @@ namespace TVSLibrary
 {
     public class Manager : User
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Manager" /> class.
+        /// </summary>
+        /// <param name="userid">ID of the user</param>
+        /// <param name="name">Name of the user</param>
         public Manager(int userid, string name)
             : base(userid, name)
         {
         }
-        
     }
 }

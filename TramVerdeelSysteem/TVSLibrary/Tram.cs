@@ -9,37 +9,74 @@ namespace TVSLibrary
     public class Tram
     {
         public Sector Sector { get; private set; }
+
         public Status Status { get; private set; }
+
         public TramDriver Tramdriver { get; private set; }
-        public int TramId { get; private set; }
+
+        public int TramNr { get; private set; }
+
+        public string RFID { get; private set; }
+
         public string TramType { get; private set; }
 
-        public Tram(string tramType, int tramId)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Tram"
+        /// </summary>
+        /// <param name="tramType">Type of the tram</param>
+        /// <param name="rfid">RFID of the tram</param>
+        /// <param name="tramNr">Number of the tram</param>
+        public Tram(string tramType, string rfid, int tramNr)
         {
             this.TramType = tramType;
-            this.TramId = tramId;
+            this.RFID = rfid;
+            this.TramNr = tramNr;
             Status = Status.Service;
         }
+
+        /// <summary>
+        /// Sets the sector of the tram
+        /// </summary>
+        /// <param name="sector">Sector to set</param>
         public void SetSector(Sector sector)
         {
             this.Sector = sector;
         }
+
+        /// <summary>
+        /// Sets the status of the tram
+        /// </summary>
+        /// <param name="status">Status to set</param>
         public void SetStatus(Status status)
         {
             this.Status = status;
         }
+
+        /// <summary>
+        /// Sets the status of the tram to cleaning
+        /// </summary>
         public void SendToCleaning()
         {
             this.Status = Status.Cleaning;
         }
+
+        /// <summary>
+        /// Sets the status of the tram to repair
+        /// </summary>
         public void SendToRepair()
         {
             this.Status = Status.Defect;
         }
+
+        /// <summary>
+        /// Sets the tram driver
+        /// </summary>
+        /// <param name="tramdriver">Tram driver to set to tram</param>
         public void SetTramDriver(TramDriver tramdriver)
         {
             this.Tramdriver = tramdriver;
         }
+
         public Sector SortTram(List<Sector> AllSectors)
         {
             bool trackset = false;
@@ -52,10 +89,7 @@ namespace TVSLibrary
                 else if (this.Status == Status.Defect)
                 {
                 }
-                else if (this.Status == Status.Service)
-                {
-                }
-                else if (this.TramId <= 841 && this.TramId >= 817)
+                else if (this.TramNr <= 841 && this.TramNr >= 817)
                 {
                     foreach (Sector s in AllSectors)
                     {
@@ -97,7 +131,7 @@ namespace TVSLibrary
                         }
                     }
                 }
-                else if ((this.TramId <= 901 && this.TramId >= 920) || (this.TramId <= 2201 && this.TramId >= 2204))
+                else if ((this.TramNr <= 901 && this.TramNr >= 920) || (this.TramNr <= 2201 && this.TramNr >= 2204))
                 {
                     foreach (Sector s in AllSectors)
                     {
@@ -130,7 +164,7 @@ namespace TVSLibrary
                         }
                     }
                 }
-                else if (this.TramId == 2001 || this.TramId == 2004 || this.TramId == 2014 || this.TramId == 2032 || this.TramId == 2037 || this.TramId == 2039 || this.TramId == 2043 || this.TramId == 2050 || this.TramId == 2058 || this.TramId == 2072)
+                else if (this.TramNr == 2001 || this.TramNr == 2004 || this.TramNr == 2014 || this.TramNr == 2032 || this.TramNr == 2037 || this.TramNr == 2039 || this.TramNr == 2043 || this.TramNr == 2050 || this.TramNr == 2058 || this.TramNr == 2072)
                 {
                     foreach (Sector s in AllSectors)
                     {
@@ -154,7 +188,7 @@ namespace TVSLibrary
                         }
                     }
                 }
-                else if (this.TramId == 2002 || this.TramId == 2008 || this.TramId == 2017 || this.TramId == 2018 || this.TramId == 2019 || this.TramId == 2025 || this.TramId == 2031 || this.TramId == 2036 || this.TramId == 2042 || this.TramId == 2049 || this.TramId == 2051 || this.TramId == 2054 || this.TramId == 2055)
+                else if (this.TramNr == 2002 || this.TramNr == 2008 || this.TramNr == 2017 || this.TramNr == 2018 || this.TramNr == 2019 || this.TramNr == 2025 || this.TramNr == 2031 || this.TramNr == 2036 || this.TramNr == 2042 || this.TramNr == 2049 || this.TramNr == 2051 || this.TramNr == 2054 || this.TramNr == 2055)
                 {
                     foreach (Sector s in AllSectors)
                     {
@@ -196,7 +230,7 @@ namespace TVSLibrary
                         }
                     }
                 }
-                else if (this.TramId == 2003 || this.TramId == 2005 || this.TramId == 2011 || this.TramId == 2012 || this.TramId == 2013 || this.TramId == 2016 || this.TramId == 2020 || this.TramId == 2022 || this.TramId == 2026 || this.TramId == 2027 || this.TramId == 2028 || this.TramId == 2038 || this.TramId == 2044 || this.TramId == 2047 || this.TramId == 2060 || this.TramId == 2071)
+                else if (this.TramNr == 2003 || this.TramNr == 2005 || this.TramNr == 2011 || this.TramNr == 2012 || this.TramNr == 2013 || this.TramNr == 2016 || this.TramNr == 2020 || this.TramNr == 2022 || this.TramNr == 2026 || this.TramNr == 2027 || this.TramNr == 2028 || this.TramNr == 2038 || this.TramNr == 2044 || this.TramNr == 2047 || this.TramNr == 2060 || this.TramNr == 2071)
                 {
                     foreach (Sector s in AllSectors)
                     {
@@ -220,7 +254,7 @@ namespace TVSLibrary
                         }
                     }
                 }
-                else if (this.TramId == 2006 || this.TramId == 2010 || this.TramId == 2015 || this.TramId == 2021 || this.TramId == 2030 || this.TramId == 2040 || this.TramId == 2045 || this.TramId == 2046 || this.TramId == 2048 || this.TramId == 2056 || this.TramId == 2067 || this.TramId == 2070)
+                else if (this.TramNr == 2006 || this.TramNr == 2010 || this.TramNr == 2015 || this.TramNr == 2021 || this.TramNr == 2030 || this.TramNr == 2040 || this.TramNr == 2045 || this.TramNr == 2046 || this.TramNr == 2048 || this.TramNr == 2056 || this.TramNr == 2067 || this.TramNr == 2070)
                 {
                     foreach (Sector s in AllSectors)
                     {
@@ -244,7 +278,7 @@ namespace TVSLibrary
                         }
                     }
                 }
-                else if (this.TramId == 2007 || this.TramId == 2009 || this.TramId == 2023 || this.TramId == 2024 || this.TramId == 2029 || this.TramId == 2033 || this.TramId == 2034 || this.TramId == 2035 || this.TramId == 2041 || this.TramId == 2052 || this.TramId == 2053 || this.TramId == 2059 || this.TramId == 2061 || this.TramId == 2064 || this.TramId == 2066 || this.TramId == 2068)
+                else if (this.TramNr == 2007 || this.TramNr == 2009 || this.TramNr == 2023 || this.TramNr == 2024 || this.TramNr == 2029 || this.TramNr == 2033 || this.TramNr == 2034 || this.TramNr == 2035 || this.TramNr == 2041 || this.TramNr == 2052 || this.TramNr == 2053 || this.TramNr == 2059 || this.TramNr == 2061 || this.TramNr == 2064 || this.TramNr == 2066 || this.TramNr == 2068)
                 {
                     foreach (Sector s in AllSectors)
                     {
