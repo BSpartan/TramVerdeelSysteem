@@ -8,18 +8,34 @@ namespace TVSLibrary
 {
     public class Mechanic : User
     {
+        Database.DatabaseManager dbm = new Database.DatabaseManager();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Mechanic" /> class.
+        /// </summary>
+        /// <param name="userid">ID of the user</param>
+        /// <param name="name">Name of the user</param>
         public Mechanic(int userid, string name)
             : base(userid, name)
         {
         }
-        public string[] GetRepairList()
+
+        /// <summary>
+        /// Gets a list of repairs
+        /// </summary>
+        /// <returns>List of repairs</returns>
+        public List<RepairCleanList> GetRepairList()
         {
-            //TODO
-            return null;
+            return dbm.GetCleaningList(false);
         }
+
+        /// <summary>
+        /// Sets a tram to service
+        /// </summary>
+        /// <param name="tram">Tram to set</param>
         public void SetService(Tram tram)
         {
-            tram.SetStatus(Status.Service);
+            //dbm.SetService(id, false);
         }
     }
 }

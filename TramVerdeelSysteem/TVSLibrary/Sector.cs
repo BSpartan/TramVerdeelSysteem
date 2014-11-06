@@ -9,38 +9,65 @@ namespace TVSLibrary
     public class Sector
     {
         public bool Available { get; private set; }
+
         public bool Blocked { get; private set; }
+
         public int Number { get; private set; }
+
         public Track Track { get; private set; }
+
         public Tram Tram { get; private set; }
 
-        public Sector(int Number, Track track)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Sector" /> class.
+        /// </summary>
+        /// <param name="number">Number of the sector</param>
+        /// <param name="track">Track of the sector</param>
+        public Sector(int number, Track track)
         {
-            this.Number = Number;
+            this.Number = number;
             this.Track = track;
             this.Available = true;
             this.Blocked = false;
         }
+
+        /// <summary>
+        /// Sets a tram to this sector.
+        /// </summary>
+        /// <param name="tram">tram to set to this sector</param>
         public void SetTram(Tram tram)
         {
             this.Tram = tram;
         }
 
+        /// <summary>
+        /// Toggles the available variable
+        /// </summary>
         public void ToggleAvailable()
         {
-            if (Available == true)
-                Available = false;
+            if (this.Available == true)
+            {
+                this.Available = false;
+            }
             else
-                Available = true;
+            {
+                this.Available = true;
+            }
         }
 
+        /// <summary>
+        /// Toggles the blocked variable
+        /// </summary>
         public void ToggleBlocked()
         {
-            if (Blocked == true)
-                Blocked = false;
+            if (this.Blocked == true)
+            {
+                this.Blocked = false;
+            }
             else
-                Blocked = true;
+            {
+                this.Blocked = true;
+            }
         }
-
     }
 }

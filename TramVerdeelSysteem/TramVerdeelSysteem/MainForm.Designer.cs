@@ -135,7 +135,7 @@
             this.pnlTrack.Controls.Add(this.tbTramNumber);
             this.pnlTrack.Controls.Add(this.lbTramNumber);
             this.pnlTrack.Location = new System.Drawing.Point(9, 38);
-            this.pnlTrack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlTrack.Margin = new System.Windows.Forms.Padding(2);
             this.pnlTrack.Name = "pnlTrack";
             this.pnlTrack.Size = new System.Drawing.Size(173, 116);
             this.pnlTrack.TabIndex = 4;
@@ -143,7 +143,7 @@
             // tbTrackNumber
             // 
             this.tbTrackNumber.Location = new System.Drawing.Point(7, 74);
-            this.tbTrackNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbTrackNumber.Margin = new System.Windows.Forms.Padding(2);
             this.tbTrackNumber.Name = "tbTrackNumber";
             this.tbTrackNumber.Size = new System.Drawing.Size(154, 20);
             this.tbTrackNumber.TabIndex = 9;
@@ -162,7 +162,7 @@
             // tbTramNumber
             // 
             this.tbTramNumber.Location = new System.Drawing.Point(4, 24);
-            this.tbTramNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbTramNumber.Margin = new System.Windows.Forms.Padding(2);
             this.tbTramNumber.Name = "tbTramNumber";
             this.tbTramNumber.Size = new System.Drawing.Size(156, 20);
             this.tbTramNumber.TabIndex = 7;
@@ -182,7 +182,7 @@
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Location = new System.Drawing.Point(200, 38);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(498, 434);
             this.panel1.TabIndex = 5;
@@ -193,9 +193,9 @@
             this.groupBox1.Controls.Add(this.btnAddReservation);
             this.groupBox1.Controls.Add(this.lbReservations);
             this.groupBox1.Location = new System.Drawing.Point(10, 178);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(172, 294);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
@@ -205,18 +205,19 @@
             // 
             this.btnDeleteReservation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteReservation.Location = new System.Drawing.Point(32, 266);
-            this.btnDeleteReservation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDeleteReservation.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteReservation.Name = "btnDeleteReservation";
             this.btnDeleteReservation.Size = new System.Drawing.Size(23, 25);
             this.btnDeleteReservation.TabIndex = 2;
             this.btnDeleteReservation.Text = "x";
             this.btnDeleteReservation.UseVisualStyleBackColor = true;
+            this.btnDeleteReservation.Click += new System.EventHandler(this.btnDeleteReservation_Click);
             // 
             // btnAddReservation
             // 
             this.btnAddReservation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddReservation.Location = new System.Drawing.Point(4, 266);
-            this.btnAddReservation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddReservation.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddReservation.Name = "btnAddReservation";
             this.btnAddReservation.Size = new System.Drawing.Size(23, 25);
             this.btnAddReservation.TabIndex = 1;
@@ -230,7 +231,7 @@
             this.lbReservations.Items.AddRange(new object[] {
             " "});
             this.lbReservations.Location = new System.Drawing.Point(4, 26);
-            this.lbReservations.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lbReservations.Margin = new System.Windows.Forms.Padding(2);
             this.lbReservations.Name = "lbReservations";
             this.lbReservations.Size = new System.Drawing.Size(164, 238);
             this.lbReservations.TabIndex = 0;
@@ -245,7 +246,7 @@
             this.Controls.Add(this.pnlTrack);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.menuStrip1.ResumeLayout(false);

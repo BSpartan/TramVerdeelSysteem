@@ -31,9 +31,9 @@
             this.lbReservationTram = new System.Windows.Forms.Label();
             this.tbReservationTramNumber = new System.Windows.Forms.TextBox();
             this.btnCancelReservation = new System.Windows.Forms.Button();
-            this.btnReserveSector = new System.Windows.Forms.Button();
-            this.tbReservationSectorNumber = new System.Windows.Forms.TextBox();
-            this.lbReservationSector = new System.Windows.Forms.Label();
+            this.btnReserveTram = new System.Windows.Forms.Button();
+            this.tbReservationTrackNumber = new System.Windows.Forms.TextBox();
+            this.lbReservationTrack = new System.Windows.Forms.Label();
             this.cbReperation = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
@@ -67,35 +67,35 @@
             this.btnCancelReservation.UseVisualStyleBackColor = true;
             this.btnCancelReservation.Click += new System.EventHandler(this.btnCancelReservation_Click);
             // 
-            // btnReserveSector
+            // btnReserveTram
             // 
-            this.btnReserveSector.Location = new System.Drawing.Point(11, 110);
-            this.btnReserveSector.Margin = new System.Windows.Forms.Padding(2);
-            this.btnReserveSector.Name = "btnReserveSector";
-            this.btnReserveSector.Size = new System.Drawing.Size(80, 30);
-            this.btnReserveSector.TabIndex = 3;
-            this.btnReserveSector.Text = "Reserveren";
-            this.btnReserveSector.UseVisualStyleBackColor = true;
-            this.btnReserveSector.Click += new System.EventHandler(this.btnReserveSector_Click);
+            this.btnReserveTram.Location = new System.Drawing.Point(11, 110);
+            this.btnReserveTram.Margin = new System.Windows.Forms.Padding(2);
+            this.btnReserveTram.Name = "btnReserveTram";
+            this.btnReserveTram.Size = new System.Drawing.Size(80, 30);
+            this.btnReserveTram.TabIndex = 3;
+            this.btnReserveTram.Text = "Reserveren";
+            this.btnReserveTram.UseVisualStyleBackColor = true;
+            this.btnReserveTram.Click += new System.EventHandler(this.btnReserveSector_Click);
             // 
-            // tbReservationSectorNumber
+            // tbReservationTrackNumber
             // 
-            this.tbReservationSectorNumber.Location = new System.Drawing.Point(95, 58);
-            this.tbReservationSectorNumber.Margin = new System.Windows.Forms.Padding(2);
-            this.tbReservationSectorNumber.Name = "tbReservationSectorNumber";
-            this.tbReservationSectorNumber.Size = new System.Drawing.Size(82, 20);
-            this.tbReservationSectorNumber.TabIndex = 4;
+            this.tbReservationTrackNumber.Location = new System.Drawing.Point(95, 58);
+            this.tbReservationTrackNumber.Margin = new System.Windows.Forms.Padding(2);
+            this.tbReservationTrackNumber.Name = "tbReservationTrackNumber";
+            this.tbReservationTrackNumber.Size = new System.Drawing.Size(82, 20);
+            this.tbReservationTrackNumber.TabIndex = 4;
             // 
-            // lbReservationSector
+            // lbReservationTrack
             // 
-            this.lbReservationSector.AutoSize = true;
-            this.lbReservationSector.Location = new System.Drawing.Point(92, 30);
-            this.lbReservationSector.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbReservationSector.Name = "lbReservationSector";
-            this.lbReservationSector.Size = new System.Drawing.Size(71, 13);
-            this.lbReservationSector.TabIndex = 5;
-            this.lbReservationSector.Text = "Tram nummer";
-            this.lbReservationSector.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lbReservationTrack.AutoSize = true;
+            this.lbReservationTrack.Location = new System.Drawing.Point(92, 30);
+            this.lbReservationTrack.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbReservationTrack.Name = "lbReservationTrack";
+            this.lbReservationTrack.Size = new System.Drawing.Size(75, 13);
+            this.lbReservationTrack.TabIndex = 5;
+            this.lbReservationTrack.Text = "Track nummer";
+            this.lbReservationTrack.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // cbReperation
             // 
@@ -113,9 +113,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(190, 161);
             this.Controls.Add(this.cbReperation);
-            this.Controls.Add(this.lbReservationSector);
-            this.Controls.Add(this.tbReservationSectorNumber);
-            this.Controls.Add(this.btnReserveSector);
+            this.Controls.Add(this.lbReservationTrack);
+            this.Controls.Add(this.tbReservationTrackNumber);
+            this.Controls.Add(this.btnReserveTram);
             this.Controls.Add(this.btnCancelReservation);
             this.Controls.Add(this.tbReservationTramNumber);
             this.Controls.Add(this.lbReservationTram);
@@ -132,9 +132,9 @@
         private System.Windows.Forms.Label lbReservationTram;
         private System.Windows.Forms.TextBox tbReservationTramNumber;
         private System.Windows.Forms.Button btnCancelReservation;
-        private System.Windows.Forms.Button btnReserveSector;
-        private System.Windows.Forms.TextBox tbReservationSectorNumber;
-        private System.Windows.Forms.Label lbReservationSector;
+        private System.Windows.Forms.Button btnReserveTram;
+        private System.Windows.Forms.TextBox tbReservationTrackNumber;
+        private System.Windows.Forms.Label lbReservationTrack;
         private System.Windows.Forms.CheckBox cbReperation;
     }
 }

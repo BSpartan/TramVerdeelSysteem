@@ -9,6 +9,7 @@ namespace TVSLibrary
     public abstract class User
     {
         public int UserId { get; private set; }
+
         public string Name { get; private set; }
 
         public User(int userid, string name)
