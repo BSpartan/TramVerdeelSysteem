@@ -90,6 +90,7 @@ namespace TramVerdeelSysteem
                 {
                     if(sr.Track.Number == tk.Number)
                     {
+                        if(sr.)
                         DGV.Rows.Add();
                     }
                 }
