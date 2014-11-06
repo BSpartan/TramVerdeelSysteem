@@ -16,9 +16,11 @@ namespace TramVerdeelSysteem
     {
         public List<Sector> AllSectors = new List<Sector>();
         public List<Track> AllTracks = new List<Track>();
+        public List<Tram> AllTrams = new List<Tram>();
         public MainForm()
         {
             InitializeComponent();
+            GetAllInformation();
         }
 
         public void UpdatelbReservations()
@@ -49,15 +51,63 @@ namespace TramVerdeelSysteem
 
         private void GetAllInformation()
         {
+            TVSLibrary.Database.DatabaseManager dbm = new TVSLibrary.Database.DatabaseManager();
 
+            AllTracks = dbm.GetAllTracks();
+            AllSectors = dbm.GetAllSectors();
+            AllTrams = dbm.GetAllTrams();
+
+            GenerateGUI();
         }
 
         private void GenerateGUI()
         {
-            foreach(Track tk in AllSectors)
-            {
+            int locationX = 0;
+            int locationY = 20;
+            int maxHeight = 0;
 
+            foreach(Track tk in AllTracks)
+            {
+                DataGridView DGV = new DataGridView();
+                DGV.AllowUserToAddRows = false;
+                DGV.ReadOnly = true;
+                DGV.AllowUserToResizeRows = false;
+                DGV.CellClick += DGV_CellClick;
+                DGV.Width = 50;
+                DGV.RowHeadersVisible = false;
+                DGV.Location = new Point(locationX * 55 + 20 ,locationY);
+                locationX++;
+                if(locationX == 13)
+                {
+                    locationX = 0;
+                    locationY += (maxHeight + 20);
+                    maxHeight = 0;
+                }
+                DGV.ScrollBars = ScrollBars.None;
+                DGV.Columns.Add(tk.Number.ToString(), tk.Number.ToString());
+                //TODO CHECK SECTOR PER TRACK
+                foreach(Sector sr in AllSectors)
+                {
+                    if(sr.Track.Number == tk.Number)
+                    {
+                        DGV.Rows.Add();
+                    }
+                }
+                DGV.Height = (DGV.Rows.Count * 22 + 25);
+                if(DGV.Height > maxHeight)
+                {
+                    maxHeight = DGV.Height;
+                }
+
+                DGV.ClearSelection();
+                panel1.Controls.Add(DGV);
             }
+        }
+
+        void DGV_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView DGV = (DataGridView) sender;
+            DGV.ClearSelection();
         }
     }
 }

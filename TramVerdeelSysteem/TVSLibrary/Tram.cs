@@ -11,13 +11,15 @@ namespace TVSLibrary
         public Sector Sector { get; private set; }
         public Status Status { get; private set; }
         public TramDriver Tramdriver { get; private set; }
-        public int TramId { get; private set; }
+        public int TramNr { get; private set; }
+        public string TramId { get; private set; }
         public string TramType { get; private set; }
 
-        public Tram(string tramType, int tramId)
+        public Tram(string tramType, string tramId, int tramNr)
         {
             this.TramType = tramType;
             this.TramId = tramId;
+            this.TramNr = tramNr;
             Status = Status.Service;
         }
         public void SetSector(Sector sector)

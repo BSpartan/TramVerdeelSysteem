@@ -136,5 +136,120 @@ namespace TVSLibrary.Database
                 connection.Close();
             }
         }
+
+        public List<Track> GetAllTracks()
+        {
+            List<Track> allTracks = new List<Track>();
+            connection.Open();
+            try
+            {
+                 OracleCommand command = new OracleCommand("SELECT * FROM Track");
+
+                command.CommandType = CommandType.Text;
+                command.Connection = connection;
+
+                OracleDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                   allTracks.Add(new Track(Convert.ToInt32(reader["Length"]), Convert.ToInt32(reader["Number"])));
+                }
+
+                return allTracks;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+            finally
+            {
+                connection.Close();
+
+            }
+
+            return null;
+        }
+
+        public List<Sector> GetAllSectors()
+        {
+            List<Sector> AllSectors = new List<Sector>();
+            Track track = null;
+            connection.Open();
+            try
+            {
+                OracleCommand command = new OracleCommand("SELECT * FROM Sector");
+
+                command.CommandType = CommandType.Text;
+                command.Connection = connection;
+
+                OracleDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                        OracleCommand commando = new OracleCommand("SELECT * FROM Track WHERE ID = :id");
+                        commando.Parameters.Add("id", Convert.ToInt32(reader["TRACK_ID"]));
+
+                        commando.CommandType = CommandType.Text;
+                        commando.Connection = connection;
+
+                        OracleDataReader read = commando.ExecuteReader();
+
+                        read.Read();
+
+                        if (read.HasRows)
+                        {
+                            track = new Track(Convert.ToInt32(read["Length"]), Convert.ToInt32(read["Number"]));
+                        }
+
+                        AllSectors.Add(new Sector(Convert.ToInt32(reader["Number"]), track));
+                }
+
+                return AllSectors;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+            finally
+            {
+                connection.Close();
+
+            }
+
+            return null;
+        }
+
+        public List<Tram> GetAllTrams()
+        {
+            List<Tram> AllTrams = new List<Tram>();
+            connection.Open();
+            try
+            {
+                OracleCommand command = new OracleCommand("SELECT * FROM Tram");
+
+                command.CommandType = CommandType.Text;
+                command.Connection = connection;
+
+                OracleDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    AllTrams.Add(new Tram(Convert.ToString(reader["TramType_Id"]), Convert.ToString(reader["RFID"]), Convert.ToInt32(reader["Number"])));
+                }
+
+                return AllTrams;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+            finally
+            {
+                connection.Close();
+
+            }
+
+            return null;
+        }
     }
 }

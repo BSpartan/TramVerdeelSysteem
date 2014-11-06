@@ -12,11 +12,10 @@ namespace TVSLibrary
         public int Number { get; private set; }
         public Remise Remise { get; private set; }
 
-        public Track(int length, int number, Remise remise)
+        public Track(int length, int number)
         {
             this.Length = length;
             this.Number = number;
-            this.Remise = remise;
         }
     }
 }

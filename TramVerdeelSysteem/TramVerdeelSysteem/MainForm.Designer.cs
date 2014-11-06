@@ -66,7 +66,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(941, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1284, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -184,7 +184,7 @@
             this.panel1.Location = new System.Drawing.Point(267, 47);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(663, 534);
+            this.panel1.Size = new System.Drawing.Size(1005, 679);
             this.panel1.TabIndex = 5;
             // 
             // groupBox1
@@ -196,7 +196,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(229, 362);
+            this.groupBox1.Size = new System.Drawing.Size(229, 507);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Reserveringen";
@@ -204,7 +204,7 @@
             // btnDeleteReservation
             // 
             this.btnDeleteReservation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteReservation.Location = new System.Drawing.Point(43, 327);
+            this.btnDeleteReservation.Location = new System.Drawing.Point(45, 472);
             this.btnDeleteReservation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDeleteReservation.Name = "btnDeleteReservation";
             this.btnDeleteReservation.Size = new System.Drawing.Size(31, 31);
@@ -215,7 +215,7 @@
             // btnAddReservation
             // 
             this.btnAddReservation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddReservation.Location = new System.Drawing.Point(5, 327);
+            this.btnAddReservation.Location = new System.Drawing.Point(7, 472);
             this.btnAddReservation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddReservation.Name = "btnAddReservation";
             this.btnAddReservation.Size = new System.Drawing.Size(31, 31);
@@ -233,14 +233,14 @@
             this.lbReservations.Location = new System.Drawing.Point(5, 32);
             this.lbReservations.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbReservations.Name = "lbReservations";
-            this.lbReservations.Size = new System.Drawing.Size(217, 292);
+            this.lbReservations.Size = new System.Drawing.Size(217, 436);
             this.lbReservations.TabIndex = 0;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(941, 593);
+            this.ClientSize = new System.Drawing.Size(1284, 737);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlTrack);
