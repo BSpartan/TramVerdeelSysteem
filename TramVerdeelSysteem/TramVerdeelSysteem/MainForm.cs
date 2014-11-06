@@ -19,6 +19,7 @@ namespace TramVerdeelSysteem
         public List<Sector> AllSectors = new List<Sector>();
         public List<Track> AllTracks = new List<Track>();
         public List<Tram> AllTrams = new List<Tram>();
+        public List<DataGridView> AllDGV = new List<DataGridView>();
 
         private int SelectedSector = 0;
         private int SelectedTrack = 0;
@@ -124,8 +125,10 @@ namespace TramVerdeelSysteem
                         DGV.Rows.Add(rowString);
                     }
                 }
+
                 if (DGV.Rows.Count != 1)
                 {
+                    //Settings
                     DGV.AllowUserToAddRows = false;
                     DGV.ReadOnly = true;
                     DGV.AllowUserToResizeRows = false;
@@ -153,6 +156,8 @@ namespace TramVerdeelSysteem
                     panel1.Controls.Add(DGV);
                     DGV.ClearSelection();
                     DGV.Rows[0].Cells[0].Selected = false;
+
+                    AllDGV.Add(DGV);
                 }
             }
         }
@@ -197,6 +202,67 @@ namespace TramVerdeelSysteem
         {
             UpdatelbReservations();
             GetAllInformation();
+        }
+
+        public void BtnSimulation_Click(Object sender, EventArgs e)
+        {
+            foreach (Tram t in AllTrams)
+                t.SetSector(null);
+
+            foreach (Sector s in AllSectors)
+                s.SetTram(null);
+
+            UpdateMainForm();
+
+            Tram next = null;
+            Sector tempSector;
+            Random random = new Random();
+            List<Tram> SimulationList = new List<Tram>();
+            foreach (Tram t in AllTrams)
+                SimulationList.Add(t);
+
+            while (SimulationList.Count > 0)
+            {
+                int Trams = SimulationList.Count();
+                next = SimulationList.ElementAt(random.Next(0, (Trams - 1)));
+                SimulationList.Remove(next);
+                tempSector = next.SortTram(AllSectors);
+
+                for (int i = 0; i < AllSectors.Count; i++)
+                {
+                    if(AllSectors[i].Equals(tempSector))
+                    {
+                        AllSectors[i].SetTram(next);
+                    }
+                }
+                
+            }
+
+            UpdateMainForm();
+        }
+
+        public void UpdateMainForm()
+        {
+            foreach(DataGridView DGV in AllDGV)
+            {
+                DGV.Rows.Clear();
+
+                foreach (Sector sr in AllSectors)
+                {
+                    if (sr.Track.Number == Convert.ToInt32(DGV.Columns[0].Name))
+                    {
+                        string rowString = "";
+                        if (sr.Tram != null)
+                        {
+                            rowString = sr.Tram.TramNr.ToString();
+                        }
+                        DGV.Rows.Add(rowString);
+                    }
+                }
+
+                DGV.ClearSelection();
+                DGV.Rows[0].Cells[0].Selected = false;
+            }
         }
     }
 }

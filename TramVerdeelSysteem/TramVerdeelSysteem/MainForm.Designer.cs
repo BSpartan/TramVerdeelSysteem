@@ -54,6 +54,7 @@
             this.ToggleBlokkeren = new System.Windows.Forms.ToolStripMenuItem();
             this.Tram = new System.Windows.Forms.ToolStripMenuItem();
             this.Toevoegen = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.pnlTrack.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -146,12 +147,12 @@
             this.pnlTrack.Location = new System.Drawing.Point(12, 47);
             this.pnlTrack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlTrack.Name = "pnlTrack";
-            this.pnlTrack.Size = new System.Drawing.Size(230, 142);
+            this.pnlTrack.Size = new System.Drawing.Size(230, 117);
             this.pnlTrack.TabIndex = 4;
             // 
             // tbTrackNumber
             // 
-            this.tbTrackNumber.Location = new System.Drawing.Point(9, 91);
+            this.tbTrackNumber.Location = new System.Drawing.Point(9, 87);
             this.tbTrackNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbTrackNumber.Name = "tbTrackNumber";
             this.tbTrackNumber.Size = new System.Drawing.Size(204, 22);
@@ -160,7 +161,7 @@
             // lbTrackNumber
             // 
             this.lbTrackNumber.AutoSize = true;
-            this.lbTrackNumber.Location = new System.Drawing.Point(9, 68);
+            this.lbTrackNumber.Location = new System.Drawing.Point(9, 64);
             this.lbTrackNumber.Name = "lbTrackNumber";
             this.lbTrackNumber.Size = new System.Drawing.Size(30, 17);
             this.lbTrackNumber.TabIndex = 8;
@@ -283,11 +284,22 @@
             this.Toevoegen.Text = "Toevoegen";
             this.Toevoegen.Click += new System.EventHandler(this.AddTram);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(18, 180);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(217, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Simulatie";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.BtnSimulation_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1273, 804);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlTrack);
@@ -335,5 +347,6 @@
         private System.Windows.Forms.ToolStripMenuItem ToggleBlokkeren;
         private System.Windows.Forms.ToolStripMenuItem Tram;
         private System.Windows.Forms.ToolStripMenuItem Toevoegen;
+        private System.Windows.Forms.Button button1;
     }
 }

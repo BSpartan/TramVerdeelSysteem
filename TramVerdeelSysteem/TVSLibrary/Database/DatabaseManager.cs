@@ -441,7 +441,7 @@ namespace TVSLibrary.Database
 
                 while (reader.Read())
                 {
-                    AllTrams.Add(new Tram(Convert.ToString(reader["TramType_Id"]), Convert.ToString(reader["RFID"]), Convert.ToInt32(reader["Number"])));
+                    AllTrams.Add(new Tram(Convert.ToString(reader["TramType_Id"]), Convert.ToString(reader["RFID"]), Convert.ToInt32(reader["TNumber"])));
                 }
 
                 return AllTrams;
