@@ -10,6 +10,8 @@ namespace TVSLibrary
     {
         public int Length { get; private set; }
 
+        public int id { get; private set; }
+
         public int Number { get; private set; }
 
         public Remise Remise { get; private set; }
@@ -31,10 +33,11 @@ namespace TVSLibrary
         /// </summary>
         /// <param name="length">Length of the track</param>
         /// <param name="number">Number of the track</param>
-        public Track(int length, int number)
+        public Track(int length, int number, int id)
         {
             this.Length = length;
             this.Number = number;
+            this.id = id;
         }
     }
 }

@@ -33,8 +33,9 @@ namespace TVSLibrary
         /// Sets the tram to 'Service'.
         /// </summary>
         /// <param name="tram">The tram to set the status of.</param>
-        public void SetService(Tram tram)
+        public void SetService(int id,Tram tram)
         {
+            dbm.SetService(id);
             tram.SetStatus(Status.Service);
         }
     }

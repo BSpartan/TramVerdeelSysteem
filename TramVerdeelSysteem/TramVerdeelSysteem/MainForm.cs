@@ -20,10 +20,13 @@ namespace TramVerdeelSysteem
         public List<Track> AllTracks = new List<Track>();
         public List<Tram> AllTrams = new List<Tram>();
 
+        private int SelectedSector = 0;
+        private int SelectedTrack = 0;
+        private DataGridView SelectedDataGrid;
+
         public MainForm()
         {
             InitializeComponent();
-            UpdatelbReservations();
         }
 
         public void UpdatelbReservations()
@@ -63,6 +66,28 @@ namespace TramVerdeelSysteem
             RepairForm repair = new RepairForm(mechanic);
             repair.Show();
         }
+
+        private void ToggleBlock(object sender, EventArgs e)
+        {
+
+            if (SelectedDataGrid[0, (SelectedSector - 1)].Style.BackColor == Color.DarkGray)
+                SelectedDataGrid[0, (SelectedSector - 1)].Style.BackColor = Color.White;
+            else
+                SelectedDataGrid[0, (SelectedSector - 1)].Style.BackColor = Color.DarkGray;
+ 
+            for (int i = 0; i < AllSectors.Count; i++)
+            {
+                if(AllSectors[i].Track.Number == SelectedTrack && AllSectors[i].Number == SelectedSector)
+                {
+                    AllSectors[i].ToggleBlocked();
+                }
+            }
+        }
+
+        private void AddTram(object sender, EventArgs e)
+        {
+            SelectedDataGrid[0, (SelectedSector - 1)].Style.BackColor = Color.DarkGray;
+        }
         
         private void GetAllInformation()
         {
@@ -72,6 +97,7 @@ namespace TramVerdeelSysteem
             AllSectors = dbm.GetAllSectors();
             AllTrams = dbm.GetAllTrams();
 
+            //GenerateSectorInDatabase();
             GenerateGUI();
         }
 
@@ -84,39 +110,80 @@ namespace TramVerdeelSysteem
             foreach(Track tk in AllTracks)
             {
                 DataGridView DGV = new DataGridView();
-                DGV.AllowUserToAddRows = false;
-                DGV.ReadOnly = true;
-                DGV.AllowUserToResizeRows = false;
-                DGV.CellClick += DGV_CellClick;
-                DGV.Width = 50;
-                DGV.RowHeadersVisible = false;
-                DGV.Location = new Point(locationX * 55 + 20 ,locationY);
-                locationX++;
-                if(locationX == 13)
-                {
-                    locationX = 0;
-                    locationY += (maxHeight + 20);
-                    maxHeight = 0;
-                }
-                DGV.ScrollBars = ScrollBars.None;
                 DGV.Columns.Add(tk.Number.ToString(), tk.Number.ToString());
-                //TODO CHECK SECTOR PER TRACK
-                foreach(Sector sr in AllSectors)
+
+                foreach (Sector sr in AllSectors)
                 {
-                    if(sr.Track.Number == tk.Number)
+                    if (sr.Track.Number == tk.Number)
                     {
-                        //if(sr.)
-                        DGV.Rows.Add();
+                        string rowString = "";
+                        if(sr.Tram != null)
+                        {
+                            rowString = sr.Tram.TramNr.ToString();
+                        }
+                        DGV.Rows.Add(rowString);
                     }
                 }
-                DGV.Height = (DGV.Rows.Count * 22 + 25);
-                if(DGV.Height > maxHeight)
+                if (DGV.Rows.Count != 1)
                 {
-                    maxHeight = DGV.Height;
+                    DGV.AllowUserToAddRows = false;
+                    DGV.ReadOnly = true;
+                    DGV.AllowUserToResizeRows = false;
+                    DGV.CellClick += DGV_CellClick;
+                    DGV.Width = 50;
+                    DGV.RowHeadersVisible = false;
+                    DGV.Location = new Point(locationX * 55 + 20 ,locationY);
+                    locationX++;
+                    DGV.ScrollBars = ScrollBars.None;                
+                    DGV.Height = (DGV.Rows.Count * 22 + 25);
+                    if(DGV.Height > maxHeight)
+                    {
+                        maxHeight = DGV.Height;
+                    }
+
+                    if (locationX == 13)
+                    {
+                        locationX = 0;
+                        locationY += (maxHeight + 20);
+                        maxHeight = 0;
+                    }
+
+                    DGV.MouseClick += DGV_MouseClick;
+
+                    panel1.Controls.Add(DGV);
+                    DGV.ClearSelection();
+                    DGV.Rows[0].Cells[0].Selected = false;
+                }
+            }
+        }
+
+        void DGV_MouseClick(object sender, MouseEventArgs e)
+        {
+
+            if (e.Button == MouseButtons.Right)
+            {
+                DataGridView DGV = (DataGridView)sender;
+
+                int currentMouseOverRow = DGV.HitTest(e.X, e.Y).RowIndex;
+
+                if (currentMouseOverRow >= 0)
+                {
+                    SelectedSector = (currentMouseOverRow + 1);
+                    SelectedTrack = Convert.ToInt32(DGV.Columns[0].Name);
+                    SelectedDataGrid = DGV;
                 }
 
-                DGV.ClearSelection();
-                panel1.Controls.Add(DGV);
+                ContextMenu.Show(DGV, new Point(e.X, e.Y));
+
+            }
+        }
+
+        private void GenerateSectorInDatabase()
+        {
+            foreach (Track tk in AllTracks)
+            {
+                //WARNING!
+                //dbm.GenerateSector(tk);
             }
         }
 
@@ -124,6 +191,12 @@ namespace TramVerdeelSysteem
         {
             DataGridView DGV = (DataGridView) sender;
             DGV.ClearSelection();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            UpdatelbReservations();
+            GetAllInformation();
         }
     }
 }
