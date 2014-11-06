@@ -35,7 +35,7 @@ namespace TramVerdeelSysteem
 
             foreach (TVSLibrary.RepairCleanList cl in cleaningList)
             {
-                string[] row = new string[] {cl.id.ToString(), cl.RFID.ToString(), cl.dateTime.ToString(), cl.status.ToString() };
+                string[] row = new string[] { cl.id.ToString(), cl.RFID.ToString(), cl.dateTime.ToString(), cl.status.ToString() };
                 dataGridView1.Rows.Add(row);
             }
         }

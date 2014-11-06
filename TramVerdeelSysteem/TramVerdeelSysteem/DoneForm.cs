@@ -48,12 +48,12 @@ namespace TramVerdeelSysteem
         {
             if(isCleaning)
             {
-                cleaner.SetService(RFID, ID);
+                //cleaner.SetService(RFID, ID);
                 this.Close();
             }
             else
             {
-                mechanic.SetService(RFID, ID);
+                //mechanic.SetService(RFID, ID);
                 this.Close();
             }
         }

@@ -8,24 +8,32 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using TVSLibrary.Database;
 using TVSLibrary;
 
 namespace TramVerdeelSysteem
 {
     public partial class MainForm : Form
     {
+        TVSLibrary.Database.DatabaseManager dbm = new TVSLibrary.Database.DatabaseManager();
         public List<Sector> AllSectors = new List<Sector>();
         public List<Track> AllTracks = new List<Track>();
         public List<Tram> AllTrams = new List<Tram>();
+
         public MainForm()
         {
             InitializeComponent();
-            GetAllInformation();
+            UpdatelbReservations();
         }
 
         public void UpdatelbReservations()
         {
+            List<TVSLibrary.Reservation> reservations = dbm.GetReservations();
 
+            foreach (TVSLibrary.Reservation reservation in reservations)
+            {
+                lbReservations.Items.Add(reservation.ToString());
+            }
         }
 
         private void btnAddReservation_Click(object sender, EventArgs e)
@@ -35,20 +43,27 @@ namespace TramVerdeelSysteem
             Reservation.Show();
         }
 
+        private void btnDeleteReservation_Click(object sender, EventArgs e)
+        {
+            int tramNumber = Convert.ToInt16(lbReservations.SelectedItem.ToString().Remove(lbReservations.SelectedItem.ToString().IndexOf("-")).Trim());
+            dbm.RemoveReservation(dbm.GetRFIDFromTramNumber(tramNumber));
+            UpdatelbReservations();
+        }
+
         private void schoonmaakToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Cleaner cleaner = new Cleaner(1,"Henk");
+            Cleaner cleaner = new Cleaner(1, "Henk");
             CleaningForm clean = new CleaningForm(cleaner);
             clean.Show();
         }
-
+        
         private void reparatieToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Mechanic mechanic = new Mechanic(1, "Henk");
             RepairForm repair = new RepairForm(mechanic);
             repair.Show();
         }
-
+        
         private void GetAllInformation()
         {
             TVSLibrary.Database.DatabaseManager dbm = new TVSLibrary.Database.DatabaseManager();
@@ -90,7 +105,7 @@ namespace TramVerdeelSysteem
                 {
                     if(sr.Track.Number == tk.Number)
                     {
-                        if(sr.)
+                        //if(sr.)
                         DGV.Rows.Add();
                     }
                 }
