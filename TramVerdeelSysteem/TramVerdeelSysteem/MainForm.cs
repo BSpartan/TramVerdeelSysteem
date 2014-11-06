@@ -46,5 +46,23 @@ namespace TramVerdeelSysteem
             AllSectors.Add(s5);
             AllSectors.Add(s6);
         }
+
+        public void BtnSimulation_Click (Object sender, EventArgs e)
+        {
+            foreach (Tram t in AllTrams)
+                t.Sector == null;
+            Tram next = null;
+            Random random = new Random();
+            List<Tram> SimulationList = new List<Tram>();
+            int Trams = AllTrams.Count();
+            foreach (Tram t in AllTrams)
+                SimulationList.Add(t);
+            while (SimulationList.Count > 0)
+            {
+                next = SimulationList.ElementAt(random.Next(0, (Trams - 1)));
+                SimulationList.Remove(next);
+                next.SortTram(AllSectors);
+            }
+        }
     }
 }
