@@ -85,17 +85,16 @@
             this.lbTrackInput.Name = "lbTrackInput";
             this.lbTrackInput.Size = new System.Drawing.Size(166, 32);
             this.lbTrackInput.TabIndex = 19;
-            this.lbTrackInput.Text = "EMPTY";
             this.lbTrackInput.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlInput
             // 
             this.pnlInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlInput.Controls.Add(this.lbInput);
-            this.pnlInput.Location = new System.Drawing.Point(272, 29);
+            this.pnlInput.Location = new System.Drawing.Point(258, 29);
             this.pnlInput.Margin = new System.Windows.Forms.Padding(2);
             this.pnlInput.Name = "pnlInput";
-            this.pnlInput.Size = new System.Drawing.Size(173, 94);
+            this.pnlInput.Size = new System.Drawing.Size(191, 94);
             this.pnlInput.TabIndex = 3;
             // 
             // lbInput
@@ -104,9 +103,8 @@
             this.lbInput.Location = new System.Drawing.Point(2, 30);
             this.lbInput.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbInput.Name = "lbInput";
-            this.lbInput.Size = new System.Drawing.Size(166, 32);
+            this.lbInput.Size = new System.Drawing.Size(188, 32);
             this.lbInput.TabIndex = 20;
-            this.lbInput.Text = "EMPTY";
             this.lbInput.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBox1
@@ -160,7 +158,7 @@
             // btnInputDone
             // 
             this.btnInputDone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInputDone.Location = new System.Drawing.Point(219, 143);
+            this.btnInputDone.Location = new System.Drawing.Point(210, 143);
             this.btnInputDone.Margin = new System.Windows.Forms.Padding(2);
             this.btnInputDone.Name = "btnInputDone";
             this.btnInputDone.Size = new System.Drawing.Size(267, 63);

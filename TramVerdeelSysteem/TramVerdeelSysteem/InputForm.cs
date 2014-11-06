@@ -9,13 +9,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TVSLibrary;
 
 namespace TramVerdeelSysteem
 {
     public partial class InputForm : Form
     {
         private RFID rfid;
-
+        private Tram tram;
         public InputForm()
         {
             InitializeComponent();
@@ -30,18 +31,20 @@ namespace TramVerdeelSysteem
 
 
             openCmdLine(rfid);
-
         }
 
         void rfid_Detach(object sender, DetachEventArgs e)
         {
             RFID detached = (RFID)sender;
         }
-
+        
         private void btnInputDone_Click(object sender, EventArgs e)
         {
-            tbHistory.Text += lbInput.Text + "\r\n";
-            rfid.LED = true;
+            lbInput.Text = "1100ad7362";
+            tram = new Tram(lbInput.Text);
+            tram.AddMaintenace(tram,cbCleaning.Checked,rbTechAssistTrue.Checked);
+            //lbTrackInput.Text = tram.DANIELPOEP(rfid);
+            tbHistory.Text += lbInput.Text + "-" + lbTrackInput.Text +"\r\n";
         }
 
         void rfid_Attach(object sender, AttachEventArgs e)
