@@ -85,8 +85,6 @@ namespace TVSLibrary.Database
             command.Connection = connection;
             command.Parameters.Add("pRFID", rfid);
             command.Parameters.Add("Type", status.ToString());
-            string a = command.CommandText;
-            a.ToUpper();
             connection.Open();
             try
             {
@@ -133,6 +131,130 @@ namespace TVSLibrary.Database
                 connection.Close();
             }
             return type;
+        }
+        /// <summary>
+        /// Gets the track by rfid
+        /// </summary>
+        /// <param name="rfid"> gets a track by rfid</param>
+        /// <returns>null or track id.</returns>
+        internal string GetReservationByRFID(string rfid)
+        {
+            connection.Open();
+            try
+            {
+                OracleCommand command = new OracleCommand("select * from reservation where RFID = :rfid");
+                command.CommandType = CommandType.Text;
+                command.Connection = connection;
+                command.Parameters.Add("rfid", rfid);
+
+                OracleDataReader reader = command.ExecuteReader();
+
+                reader.Read();
+
+                return Convert.ToString(reader["Track_ID"]);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+        }
+        /// <summary>
+        /// checks if tram already exist on the track
+        /// </summary>
+        /// <param name="rfid">rfid</param>
+        /// <returns>if the tram is found on a sector</returns>
+        internal bool CheckTramOnTrack(string rfid)
+        {
+
+            connection.Open();
+            try
+            {
+                OracleCommand command = new OracleCommand("select * from sector where RFID  = :rfid");
+                command.CommandType = CommandType.Text;
+                command.Connection = connection;
+                command.Parameters.Add("rfid", rfid);
+
+                OracleDataReader reader = command.ExecuteReader();
+
+                DataTable dt = new DataTable();
+
+                dt.Load(reader);
+
+                if (dt.Rows.Count != 0)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        /// <summary>
+        /// inserts a tram on a sector
+        /// </summary>
+        /// <param name="rfid">tram</param>
+        /// <param name="track">setor</param>
+        internal void InsertSector(string rfid,string track)
+        {
+            OracleCommand command = new OracleCommand("Update sector set Rfid = :rfid where id = :id)");
+            command.CommandType = CommandType.Text;
+            command.Connection = connection;
+            command.Parameters.Add("rfid", rfid);
+            command.Parameters.Add("id", Convert.ToInt32(track));
+            connection.Open();
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        /// <summary>
+        /// gets an empty sectorid
+        /// </summary>
+        /// <returns>empty sector</returns>
+        internal string GetEmptyTrack()
+        {
+            connection.Open();
+            try
+            {
+                OracleCommand command = new OracleCommand("select * from sector where RFID  is null and rownum =1");
+                command.CommandType = CommandType.Text;
+                command.Connection = connection;
+
+                OracleDataReader reader = command.ExecuteReader();
+
+                reader.Read();
+
+                return Convert.ToString(reader["id"]);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+                return "Error with SQL";
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
     }
 }

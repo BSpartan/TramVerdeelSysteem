@@ -60,7 +60,7 @@ namespace TramVerdeelSysteem
             lbInput.Text = "1100ad7362";
             this.tram = new Tram(lbInput.Text);
             this.tram.AddMaintenace(tram, cbCleaning.Checked, rbTechAssistTrue.Checked);
-            //// lbTrackInput.Text = tram.DANIELPOEP(rfid);
+            lbTrackInput.Text = tram.GetTrack();
             tbHistory.Text += lbInput.Text + "-" + lbTrackInput.Text + "\r\n";
         }
 

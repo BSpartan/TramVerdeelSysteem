@@ -112,7 +112,30 @@ namespace TVSLibrary
                 this.db.AddMaintenace(tram.Rfid, Status.Cleaning);
             if (reparatie)
                 this.db.AddMaintenace(tram.Rfid, Status.Defect);
-            
+        }
+        /// <summary>
+        /// gets the track for the Tram
+        /// </summary>
+        /// <returns>track</returns>
+        public string GetTrack()
+        {
+            string track = string.Empty;
+            string reservation = string.Empty;
+            if (db.CheckTramOnTrack(this.Rfid))
+                return "Tram al ingedeeld.";
+
+            reservation = db.GetReservationByRFID(this.Rfid);
+            if (reservation != null)
+            {
+                db.InsertSector(this.Rfid,reservation);
+                return reservation;
+            }
+            else
+            {
+                track = db.GetEmptyTrack();
+                db.InsertSector(this.Rfid,track);
+                return track;
+            }
         }
     }
 }
