@@ -74,7 +74,7 @@
     <Compile Include="InputForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InputForm.Designer.cs">
+    <Compile Include="InputForm.designer.cs">
       <DependentUpon>InputForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
@@ -83,7 +83,9 @@
     <Compile Include="LoginForm.designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="RepairForm.cs" />
+    <Compile Include="RepairForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="RepairForm.designer.cs">
       <DependentUpon>RepairForm.cs</DependentUpon>
     </Compile>
@@ -121,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DoneForm.resx">
       <DependentUpon>DoneForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputForm.resx">
+      <DependentUpon>InputForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

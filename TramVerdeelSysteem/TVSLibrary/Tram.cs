@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TVSLibrary.Database;
 
 namespace TVSLibrary
 {
     public class Tram
     {
+
+        private DatabaseManager db;
+
         public Sector Sector { get; private set; }
 
         public Status Status { get; private set; }
@@ -24,14 +28,20 @@ namespace TVSLibrary
         /// Initializes a new instance of the <see cref="Tram"
         /// </summary>
         /// <param name="tramType">Type of the tram</param>
-        /// <param name="rfid">RFID of the tram</param>
+        /// <param name="RFID">RFID of the tram</param>
         /// <param name="tramNr">Number of the tram</param>
-        public Tram(string tramType, string rfid, int tramNr)
+        public Tram(string tramType, string RFID, int tramNr)
         {
             this.TramType = tramType;
-            this.RFID = rfid;
+            this.RFID = RFID;
             this.TramNr = tramNr;
             Status = Status.Service;
+            this.db = new DatabaseManager();
+        }
+
+        public Tram(string RFID)
+        {
+            this.RFID = RFID;
         }
 
         /// <summary>
@@ -75,6 +85,44 @@ namespace TVSLibrary
         public void SetTramDriver(TramDriver tramdriver)
         {
             this.Tramdriver = tramdriver;
+        }
+
+        /// <summary>
+        /// adds the tram to the maintenance table if needed.
+        /// </summary>
+        /// <param name="tram">what tram</param>
+        /// <param name="schoonmaak">in need of cleaning</param>
+        /// <param name="reparatie">in need of repair</param>
+        public void AddMaintenace(Tram tram, bool schoonmaak, bool reparatie)
+        {
+            if (schoonmaak)
+                this.db.AddMaintenace(tram.RFID, Status.Cleaning);
+            if (reparatie)
+                this.db.AddMaintenace(tram.RFID, Status.Defect);
+        }
+        /// <summary>
+        /// gets the track for the Tram
+        /// </summary>
+        /// <returns>track</returns>
+        public string GetTrack()
+        {
+            string track = string.Empty;
+            string reservation = string.Empty;
+            if (db.CheckTramOnTrack(this.RFID))
+                return "Tram al ingedeeld.";
+
+            reservation = db.GetReservationByRFID(this.RFID);
+            if (reservation != null)
+            {
+                db.InsertSector(this.RFID, reservation);
+                return reservation;
+            }
+            else
+            {
+                track = db.GetEmptyTrack();
+                db.InsertSector(this.RFID, track);
+                return track;
+            }
         }
 
         public Sector SortTram(List<Sector> AllSectors)

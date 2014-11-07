@@ -1,21 +1,30 @@
-﻿using Phidgets;
-using Phidgets.Events;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
+﻿// Input form code
 namespace TramVerdeelSysteem
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Data;
+    using System.Drawing;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Windows.Forms;
+    using Phidgets;
+    using Phidgets.Events;
+    using TVSLibrary;
+
+    /// <summary>
+    /// Code behind the form
+    /// </summary>
     public partial class InputForm : Form
     {
         private RFID rfid;
+        private Tram tram;
 
+        /// <summary>
+        /// Screen initialization and looking for a RFID scanner
+        /// </summary>
         public InputForm()
         {
             InitializeComponent();
@@ -28,41 +37,76 @@ namespace TramVerdeelSysteem
             rfid.Tag += new TagEventHandler(rfid_Tag);
             rfid.TagLost += new TagEventHandler(rfid_TagLost);
 
-
-            openCmdLine(rfid);
-
+            this.openCmdLine(rfid);
         }
 
+        /// <summary>
+        /// sets the scanner on non active so it can be used by another programm
+        /// </summary>
+        /// <param name="sender"> </param>
+        /// <param name="e"> </param>
         void rfid_Detach(object sender, DetachEventArgs e)
         {
             RFID detached = (RFID)sender;
         }
 
+        /// <summary>
+        /// Inserts the tram into the system
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnInputDone_Click(object sender, EventArgs e)
         {
-            tbHistory.Text += lbInput.Text + "\r\n";
-            rfid.LED = true;
+            this.tram = new Tram(lbInput.Text);
+            this.tram.AddMaintenace(tram, cbCleaning.Checked, rbTechAssistTrue.Checked);
+            lbTrackInput.Text = tram.GetTrack();
+            tbHistory.Text += lbInput.Text + "-" + lbTrackInput.Text + "\r\n";
         }
 
+        /// <summary>
+        /// Sets the RFID scanner so it can be used.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void rfid_Attach(object sender, AttachEventArgs e)
         {
             RFID attached = (RFID)sender;
         }
 
+        /// <summary>
+        /// Reads the tag from the RFID TAG
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void rfid_Tag(object sender, TagEventArgs e)
         {
             lbInput.Text = e.Tag;
         }
 
+        /// <summary>
+        /// Empties the label when the tag is lost
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void rfid_TagLost(object sender, TagEventArgs e)
         {
-            lbInput.Text = "";
+            lbInput.Text = string.Empty;
         }
 
+        /// <summary>
+        /// opens the phidgets command line
+        /// </summary>
+        /// <param name="p">phidgets device</param>
         private void openCmdLine(Phidget p)
         {
-            openCmdLine(p, null);
+            this.openCmdLine(p, null);
         }
+
+        /// <summary>
+        /// Sets the scanner ready for use
+        /// </summary>
+        /// <param name="p">phidgets device</param>
+        /// <param name="pass"></param>
         private void openCmdLine(Phidget p, String pass)
         {
             int serial = -1;
@@ -74,7 +118,9 @@ namespace TramVerdeelSysteem
             String appName = args[0];
 
             try
-            { //Parse the flags
+
+            { 
+                // Parse the flags
                 for (int i = 1; i < args.Length; i++)
                 {
                     if (args[i].StartsWith("-"))
@@ -119,9 +165,11 @@ namespace TramVerdeelSysteem
                     p.open(serial, host, pass);
                 else
                     p.open(serial);
-                return; //success
+                return;
+                // success
             }
-            catch { }
+            catch {
+            }
         usage:
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("Invalid Command line arguments." + Environment.NewLine);
