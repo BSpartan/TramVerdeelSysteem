@@ -87,7 +87,21 @@ namespace TramVerdeelSysteem
 
         private void AddTram(object sender, EventArgs e)
         {
-            SelectedDataGrid[0, (SelectedSector - 1)].Style.BackColor = Color.DarkGray;
+            AddTram addTram = new AddTram(SelectedTrack);
+            addTram.Show();
+        }
+
+        private void DeleteTram(object sender, EventArgs e)
+        {
+            MessageBox.Show("Weet je zeker dat je de tram op spoor: " + SelectedTrack.ToString() + ", sector: " + SelectedSector.ToString() + " wilt verwijderen.", "Let op!", MessageBoxButtons.YesNo);
+        }
+
+        private void MoveTram(object sender, EventArgs e)
+        {
+            if (SelectedDataGrid[0, (SelectedSector - 1)].Style.BackColor == Color.Aquamarine)
+                SelectedDataGrid[0, (SelectedSector - 1)].Style.BackColor = Color.White;
+            else
+                SelectedDataGrid[0, (SelectedSector - 1)].Style.BackColor = Color.Aquamarine;
         }
         
         private void GetAllInformation()
@@ -176,6 +190,18 @@ namespace TramVerdeelSysteem
                     SelectedSector = (currentMouseOverRow + 1);
                     SelectedTrack = Convert.ToInt32(DGV.Columns[0].Name);
                     SelectedDataGrid = DGV;
+                    if(DGV[0, SelectedSector - 1].Value == string.Empty)
+                    {
+                        Toevoegen.Enabled = true;
+                        verwijderenToolStripMenuItem.Enabled = false;
+                        verplaatsenToolStripMenuItem.Enabled = false;
+                    }
+                    else
+                    {
+                        Toevoegen.Enabled = false;
+                        verwijderenToolStripMenuItem.Enabled = true;
+                        verplaatsenToolStripMenuItem.Enabled = true;
+                    }
                 }
 
                 ContextMenu.Show(DGV, new Point(e.X, e.Y));

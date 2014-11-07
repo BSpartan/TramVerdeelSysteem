@@ -59,6 +59,12 @@
     <Compile Include="CleaningForm.designer.cs">
       <DependentUpon>CleaningForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddForm.Designer.cs">
+      <DependentUpon>AddForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DoneForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,9 @@
     <Compile Include="TramStatus.Designer.cs">
       <DependentUpon>TramStatus.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddForm.resx">
+      <DependentUpon>AddForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CleaningForm.resx">
       <DependentUpon>CleaningForm.cs</DependentUpon>
     </EmbeddedResource>

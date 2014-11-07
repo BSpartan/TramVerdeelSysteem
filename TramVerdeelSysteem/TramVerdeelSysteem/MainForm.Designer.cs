@@ -55,6 +55,8 @@
             this.Tram = new System.Windows.Forms.ToolStripMenuItem();
             this.Toevoegen = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
+            this.verwijderenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verplaatsenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.pnlTrack.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -147,7 +149,7 @@
             this.pnlTrack.Location = new System.Drawing.Point(12, 47);
             this.pnlTrack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlTrack.Name = "pnlTrack";
-            this.pnlTrack.Size = new System.Drawing.Size(230, 117);
+            this.pnlTrack.Size = new System.Drawing.Size(230, 163);
             this.pnlTrack.TabIndex = 4;
             // 
             // tbTrackNumber
@@ -200,11 +202,11 @@
             this.groupBox1.Controls.Add(this.btnDeleteReservation);
             this.groupBox1.Controls.Add(this.btnAddReservation);
             this.groupBox1.Controls.Add(this.lbReservations);
-            this.groupBox1.Location = new System.Drawing.Point(13, 219);
+            this.groupBox1.Location = new System.Drawing.Point(13, 274);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(229, 574);
+            this.groupBox1.Size = new System.Drawing.Size(229, 519);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Reserveringen";
@@ -251,7 +253,7 @@
             this.Sector,
             this.Tram});
             this.ContextMenu.Name = "contextMenuStrip1";
-            this.ContextMenu.Size = new System.Drawing.Size(121, 52);
+            this.ContextMenu.Size = new System.Drawing.Size(176, 80);
             this.ContextMenu.Text = "Tram Verdeel Systeem";
             // 
             // Sector
@@ -272,9 +274,11 @@
             // Tram
             // 
             this.Tram.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Toevoegen});
+            this.Toevoegen,
+            this.verwijderenToolStripMenuItem,
+            this.verplaatsenToolStripMenuItem});
             this.Tram.Name = "Tram";
-            this.Tram.Size = new System.Drawing.Size(120, 24);
+            this.Tram.Size = new System.Drawing.Size(175, 24);
             this.Tram.Text = "Tram";
             // 
             // Toevoegen
@@ -286,13 +290,27 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(18, 180);
+            this.button1.Location = new System.Drawing.Point(18, 231);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(217, 23);
             this.button1.TabIndex = 7;
             this.button1.Text = "Simulatie";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.BtnSimulation_Click);
+            // 
+            // verwijderenToolStripMenuItem
+            // 
+            this.verwijderenToolStripMenuItem.Name = "verwijderenToolStripMenuItem";
+            this.verwijderenToolStripMenuItem.Size = new System.Drawing.Size(175, 24);
+            this.verwijderenToolStripMenuItem.Text = "Verwijderen";
+            this.verwijderenToolStripMenuItem.Click += new System.EventHandler(this.DeleteTram);
+            // 
+            // verplaatsenToolStripMenuItem
+            // 
+            this.verplaatsenToolStripMenuItem.Name = "verplaatsenToolStripMenuItem";
+            this.verplaatsenToolStripMenuItem.Size = new System.Drawing.Size(175, 24);
+            this.verplaatsenToolStripMenuItem.Text = "Verplaatsen";
+            this.verplaatsenToolStripMenuItem.Click += new System.EventHandler(this.MoveTram);
             // 
             // MainForm
             // 
@@ -348,5 +366,7 @@
         private System.Windows.Forms.ToolStripMenuItem Tram;
         private System.Windows.Forms.ToolStripMenuItem Toevoegen;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripMenuItem verwijderenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verplaatsenToolStripMenuItem;
     }
 }
