@@ -434,5 +434,82 @@ namespace TVSLibrary.Database
 
             return null;
         }
+
+        public bool CheckPassword(int id, string password)
+        {
+            bool succes = false;
+            connection.Open();
+            try
+            {
+                OracleCommand command = new OracleCommand("SELECT * FROM EMPLOYEE WHERE ID = :pID and Password = :pPassword");
+                command.CommandType = CommandType.Text;
+                command.Connection = connection;
+                command.Parameters.Add(":pID", id);
+                command.Parameters.Add(":pPassword", password);
+
+                OracleDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    succes = true;
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return succes;
+        }
+
+        public User GetUserData(int id)
+        {
+            object user = null;
+            connection.Open();
+            try
+            {
+                OracleCommand command = new OracleCommand("SELECT * FROM Employee WHERE ID = :pID");
+
+                command.CommandType = CommandType.Text;
+                command.Connection = connection;
+                command.Parameters.Add(":pID", id);
+
+                OracleDataReader reader = command.ExecuteReader();
+
+                reader.Read();
+                int function = Convert.ToInt16(reader["Function"]);
+                switch (function)
+                {
+                    case 1:
+                        user = new Manager(Convert.ToInt16(reader["ID"]), Convert.ToString(reader["Name"]));
+                        break;
+                    case 2:
+                        user = new LodgeEmployee(Convert.ToInt16(reader["ID"]), Convert.ToString(reader["Name"]));
+                        break;
+                    case 3:
+                        user = new TramDriver(Convert.ToInt16(reader["ID"]), Convert.ToString(reader["Name"]));
+                        break;
+                    case 4:
+                        user = new Mechanic(Convert.ToInt16(reader["ID"]), Convert.ToString(reader["Name"]));
+                        break;
+                    case 5:
+                        user = new Cleaner(Convert.ToInt16(reader["ID"]), Convert.ToString(reader["Name"]));
+                        break;
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return (User)user;
+        }
     }
 }

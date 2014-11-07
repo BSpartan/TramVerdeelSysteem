@@ -20,8 +20,8 @@ namespace TramVerdeelSysteem
         public List<Track> AllTracks = new List<Track>();
         public List<Tram> AllTrams = new List<Tram>();
 
-        public MainForm()
-        {
+        public MainForm(User user)
+        {5
             InitializeComponent();
             UpdatelbReservations();
         }

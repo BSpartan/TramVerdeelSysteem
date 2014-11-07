@@ -55,3 +55,4 @@ C:\Users\Sebastiaan\Desktop\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSys
 C:\Users\Sebastiaan\Desktop\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\bin\Debug\TVSLibrary.dll
 C:\Users\Sebastiaan\Desktop\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\bin\Debug\Oracle.DataAccess.dll
 C:\Users\Sebastiaan\Desktop\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\bin\Debug\TVSLibrary.pdb
+C:\Users\Sebastiaan\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TramVerdeelSysteem\obj\Debug\TramVerdeelSysteem.LoginForm.resources
