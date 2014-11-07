@@ -13,9 +13,9 @@ namespace TVSUnitTest
             Sector sector = new Sector(1, new Track(1, 1, new Remise("TestRemise")));
             TramDriver td = new TramDriver(1, "TestName");
 
-            Tram tram = new Tram("TestType", 1);
+            Tram tram = new Tram("TestType", "1",1);
             Assert.AreEqual(tram.TramType, "TestType");
-            Assert.AreEqual(tram.TramId, 1);
+            Assert.AreEqual(tram.RFID, 1);
 
             tram.SetTramDriver(td);
             Assert.AreEqual(tram.Tramdriver, td);
@@ -34,7 +34,7 @@ namespace TVSUnitTest
 
         public void TestSector()
         {
-            Tram tram = new Tram("TestType", 1);
+            Tram tram = new Tram("TestType", "1", 1);
             Track track = new Track(1, 1, new Remise("TestRemise"));
 
             Sector sector = new Sector(1, track);

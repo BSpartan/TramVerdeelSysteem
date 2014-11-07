@@ -22,3 +22,9 @@ C:\Users\Sebastiaan\Desktop\TramVerdeelSysteem\TramVerdeelSysteem\TVSLibrary\bin
 C:\Users\Sebastiaan\Desktop\TramVerdeelSysteem\TramVerdeelSysteem\TVSLibrary\bin\Debug\TVSLibrary.pdb
 C:\Users\Sebastiaan\Desktop\TramVerdeelSysteem\TramVerdeelSysteem\TVSLibrary\bin\Debug\Oracle.DataAccess.dll
 C:\Users\Sebastiaan\Desktop\TramVerdeelSysteem\TramVerdeelSysteem\TVSLibrary\obj\Debug\TVSLibrary.pdb
+C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TVSLibrary\bin\Debug\TVSLibrary.dll
+C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TVSLibrary\bin\Debug\TVSLibrary.pdb
+C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TVSLibrary\bin\Debug\Oracle.DataAccess.dll
+C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TVSLibrary\obj\Debug\TVSLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TVSLibrary\obj\Debug\TVSLibrary.dll
+C:\Users\Bjork\Documents\GitHub\TramVerdeelSysteem\TramVerdeelSysteem\TVSLibrary\obj\Debug\TVSLibrary.pdb

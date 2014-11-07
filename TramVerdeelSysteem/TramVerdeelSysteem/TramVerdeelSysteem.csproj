@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddForm.designer.cs">
+      <DependentUpon>AddForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="BlockSector.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,9 +83,7 @@
     <Compile Include="LoginForm.designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="RepairForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="RepairForm.cs" />
     <Compile Include="RepairForm.designer.cs">
       <DependentUpon>RepairForm.cs</DependentUpon>
     </Compile>
@@ -106,9 +110,12 @@
     <Compile Include="TramStatus.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TramStatus.Designer.cs">
+    <Compile Include="TramStatus.designer.cs">
       <DependentUpon>TramStatus.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddForm.resx">
+      <DependentUpon>AddForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CleaningForm.resx">
       <DependentUpon>CleaningForm.cs</DependentUpon>
     </EmbeddedResource>

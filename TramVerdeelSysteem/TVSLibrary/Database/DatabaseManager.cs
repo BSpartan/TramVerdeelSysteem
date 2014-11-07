@@ -20,7 +20,8 @@ namespace TVSLibrary.Database
         static DatabaseManager()
         {
             // Connects to the database Data source, under the username User Id.
-            connection = new OracleConnection("User Id= dbi298273; Password= PeKHcY2bu4; Data Source= //192.168.15.50:1521/fhictora;");
+            //connection = new OracleConnection("User Id= dbi298273; Password= PeKHcY2bu4; Data Source= //192.168.15.50:1521/fhictora;");
+            connection = new OracleConnection("User Id= PTS2; Password= PTS2; Data Source= //localhost:1521/xe;");
         }
 
         /// <summary>
@@ -298,7 +299,7 @@ namespace TVSLibrary.Database
         }
 
         //FIX DEZE
-        public void SetService(int id, bool Cleaning)
+        public void SetService(int id)
         {
             connection.Open();
             try
@@ -335,7 +336,7 @@ namespace TVSLibrary.Database
 
                 while (reader.Read())
                 {
-                    allTracks.Add(new Track(Convert.ToInt32(reader["Length"]), Convert.ToInt32(reader["Number"])));
+                    allTracks.Add(new Track(Convert.ToInt32(reader["Length"]), Convert.ToInt32(reader["Number"]), Convert.ToInt32(reader["ID"])));
                 }
 
                 return allTracks;
@@ -357,6 +358,8 @@ namespace TVSLibrary.Database
         {
             List<Sector> AllSectors = new List<Sector>();
             Track track = null;
+            Tram tram = null;
+            Sector sector = null;
             connection.Open();
             try
             {
@@ -381,10 +384,31 @@ namespace TVSLibrary.Database
 
                     if (read.HasRows)
                     {
-                        track = new Track(Convert.ToInt32(read["Length"]), Convert.ToInt32(read["Number"]));
+                        track = new Track(Convert.ToInt32(read["Length"]), Convert.ToInt32(read["Number"]), Convert.ToInt32(read["ID"]));
                     }
 
-                    AllSectors.Add(new Sector(Convert.ToInt32(reader["Number"]), track));
+                    sector = new Sector(Convert.ToInt32(reader["SNumber"]), track);
+
+                    if (reader["RFID"] != DBNull.Value)
+                    {
+                        OracleCommand commando2 = new OracleCommand("SELECT * FROM Tram WHERE RFID = :id");
+                        commando2.Parameters.Add("id", Convert.ToInt32(reader["RFID"]));
+
+                        commando2.CommandType = CommandType.Text;
+                        commando2.Connection = connection;
+
+                        OracleDataReader read2 = commando2.ExecuteReader();
+
+                        read2.Read();
+
+                        if (read2.HasRows)
+                        {
+                            tram = new Tram(Convert.ToString(read2["TRAMTYPE_ID"]), Convert.ToString(read2["RFID"]), Convert.ToInt32(read2["TNUMBER"]));
+                        }
+
+                        sector.SetTram(tram);
+                    }
+                    AllSectors.Add(sector);
                 }
 
                 return AllSectors;
@@ -417,7 +441,7 @@ namespace TVSLibrary.Database
 
                 while (reader.Read())
                 {
-                    AllTrams.Add(new Tram(Convert.ToString(reader["TramType_Id"]), Convert.ToString(reader["RFID"]), Convert.ToInt32(reader["Number"])));
+                    AllTrams.Add(new Tram(Convert.ToString(reader["TramType_Id"]), Convert.ToString(reader["RFID"]), Convert.ToInt32(reader["TNumber"])));
                 }
 
                 return AllTrams;
@@ -433,6 +457,33 @@ namespace TVSLibrary.Database
             }
 
             return null;
+        }
+
+        public void GenerateSector(Track tk)
+        {
+            connection.Open();
+            try
+            {
+                for (int i = 0; i < tk.Length; i++)
+                {
+                    OracleCommand command = new OracleCommand("INSERT INTO SECTOR (ID, TRACK_ID, RFID, SNUMBER) VALUES (SECTORSEQ.NEXTVAL, :trackId, null, :snumber)");
+                    command.CommandType = CommandType.Text;
+                    command.Connection = connection;
+                    command.Parameters.Add(":trackId", tk.id);
+                    command.Parameters.Add(":snumber", (i + 1));
+
+                    command.ExecuteNonQuery();
+                }
+
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public bool CheckPassword(int id, string password)
@@ -510,6 +561,28 @@ namespace TVSLibrary.Database
             }
 
             return (User)user;
+        }
+
+        public void VeranderTramStatus(string number, string status)
+        {
+            connection.Open();
+            string sql = "UPDATE TRAM SET STATUS = :status WHERE TNUMBER = :number";
+            OracleCommand com = new OracleCommand(sql, connection);
+            com.Parameters.Add(new OracleParameter("status", status));
+            com.Parameters.Add(new OracleParameter("number", number));
+            try
+            {
+                
+                com.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.Message);
+            }
+            finally
+            {
+                connection.Close(); 
+            }
         }
     }
 }
