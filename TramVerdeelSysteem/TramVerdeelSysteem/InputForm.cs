@@ -57,7 +57,6 @@ namespace TramVerdeelSysteem
         /// <param name="e"></param>
         private void btnInputDone_Click(object sender, EventArgs e)
         {
-            lbInput.Text = "1100ad7362";
             this.tram = new Tram(lbInput.Text);
             this.tram.AddMaintenace(tram, cbCleaning.Checked, rbTechAssistTrue.Checked);
             lbTrackInput.Text = tram.GetTrack();
