@@ -60,14 +60,7 @@ namespace TVSLibrary
         /// </summary>
         public void ToggleBlocked()
         {
-            if (this.Blocked == true)
-            {
-                this.Blocked = false;
-            }
-            else
-            {
-                this.Blocked = true;
-            }
+            this.Blocked = !this.Blocked;
         }
     }
 }

@@ -32,8 +32,8 @@
             this.btnDeleteTram = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TbTramNumber = new System.Windows.Forms.TextBox();
+            this.tbTrackNr = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnCancelDelete
@@ -53,6 +53,7 @@
             this.btnDeleteTram.TabIndex = 3;
             this.btnDeleteTram.Text = "Toevoegen";
             this.btnDeleteTram.UseVisualStyleBackColor = true;
+            this.btnDeleteTram.Click += new System.EventHandler(this.btnDeleteTram_Click);
             // 
             // label1
             // 
@@ -72,28 +73,28 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Spoornummer";
             // 
-            // textBox1
+            // TbTramNumber
             // 
-            this.textBox1.Location = new System.Drawing.Point(21, 41);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(183, 22);
-            this.textBox1.TabIndex = 6;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.TbTramNumber.Location = new System.Drawing.Point(21, 41);
+            this.TbTramNumber.Name = "TbTramNumber";
+            this.TbTramNumber.Size = new System.Drawing.Size(183, 22);
+            this.TbTramNumber.TabIndex = 6;
+            this.TbTramNumber.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // textBox2
+            // tbTrackNr
             // 
-            this.textBox2.Location = new System.Drawing.Point(231, 39);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(146, 22);
-            this.textBox2.TabIndex = 7;
+            this.tbTrackNr.Location = new System.Drawing.Point(231, 39);
+            this.tbTrackNr.Name = "tbTrackNr";
+            this.tbTrackNr.Size = new System.Drawing.Size(146, 22);
+            this.tbTrackNr.TabIndex = 7;
             // 
             // AddTram
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(422, 198);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbTrackNr);
+            this.Controls.Add(this.TbTramNumber);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnDeleteTram);
@@ -113,7 +114,7 @@
         private System.Windows.Forms.Button btnDeleteTram;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TbTramNumber;
+        private System.Windows.Forms.TextBox tbTrackNr;
     }
 }

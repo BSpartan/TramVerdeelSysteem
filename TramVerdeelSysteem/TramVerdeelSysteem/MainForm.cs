@@ -5,7 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using System.Diagnostics;
 using TVSLibrary.Database;
@@ -20,6 +20,7 @@ namespace TramVerdeelSysteem
         public List<Track> AllTracks = new List<Track>();
         public List<Tram> AllTrams = new List<Tram>();
         public List<DataGridView> AllDGV = new List<DataGridView>();
+        private List<Tram> SimulationList;
 
         private int SelectedSector = 0;
         private int SelectedTrack = 0;
@@ -72,17 +73,26 @@ namespace TramVerdeelSysteem
 
         private void ToggleBlock(object sender, EventArgs e)
         {
-
-            if (SelectedDataGrid[0, (SelectedSector - 1)].Style.BackColor == Color.DarkGray)
-                SelectedDataGrid[0, (SelectedSector - 1)].Style.BackColor = Color.White;
-            else
-                SelectedDataGrid[0, (SelectedSector - 1)].Style.BackColor = Color.DarkGray;
-
             for (int i = 0; i < AllSectors.Count; i++)
             {
-                if (AllSectors[i].Track.Number == SelectedTrack && AllSectors[i].Number == SelectedSector)
+                if (AllSectors[i].Track.Number == SelectedTrack && AllSectors[i].Number <= SelectedSector)
                 {
-                    AllSectors[i].ToggleBlocked();
+                    if (AllSectors[i].Track.Length > SelectedSector - 1)
+                    {
+                            if (SelectedDataGrid[0, (AllSectors[i].Number - 1)].Style.BackColor == Color.DarkGray)
+                                SelectedDataGrid[0, (AllSectors[i].Number - 1)].Style.BackColor = Color.White;
+                            else
+                                SelectedDataGrid[0, (AllSectors[i].Number - 1)].Style.BackColor = Color.DarkGray;
+                            AllSectors[i].ToggleBlocked();
+                    }
+                    else
+                    {
+                        if (SelectedDataGrid[0, (AllSectors[i].Number - 1)].Style.BackColor == Color.DarkGray)
+                            SelectedDataGrid[0, (AllSectors[i].Number - 1)].Style.BackColor = Color.White;
+                        else
+                            SelectedDataGrid[0, (AllSectors[i].Number - 1)].Style.BackColor = Color.DarkGray;
+                        AllSectors[i].ToggleBlocked();
+                    }
                 }
             }
         }
@@ -91,11 +101,13 @@ namespace TramVerdeelSysteem
         {
             AddTram addTram = new AddTram(SelectedTrack);
             addTram.Show();
+            addTram.FormClosed += new FormClosedEventHandler(UpdateMainForm);
         }
 
         private void DeleteTram(object sender, EventArgs e)
         {
             MessageBox.Show("Weet je zeker dat je de tram op spoor: " + SelectedTrack.ToString() + ", sector: " + SelectedSector.ToString() + " wilt verwijderen.", "Let op!", MessageBoxButtons.YesNo);
+
         }
 
         private void MoveTram(object sender, EventArgs e)
@@ -105,6 +117,17 @@ namespace TramVerdeelSysteem
             else
                 SelectedDataGrid[0, (SelectedSector - 1)].Style.BackColor = Color.Aquamarine;
         }
+
+        private void ToCleaning(object sender, EventArgs e)
+        {
+        }
+
+        private void ToRepair(object sender, EventArgs e)
+        {
+
+        }
+
+
 
         private void GetAllInformation()
         {
@@ -197,12 +220,16 @@ namespace TramVerdeelSysteem
                         Toevoegen.Enabled = true;
                         verwijderenToolStripMenuItem.Enabled = false;
                         verplaatsenToolStripMenuItem.Enabled = false;
+                        ToCleaningItem.Enabled = false;
+                        ToRepairItem.Enabled = false;
                     }
                     else
                     {
                         Toevoegen.Enabled = false;
                         verwijderenToolStripMenuItem.Enabled = true;
                         verplaatsenToolStripMenuItem.Enabled = true;
+                        ToCleaningItem.Enabled = true;
+                        ToRepairItem.Enabled = true;
                     }
                 }
 
@@ -234,6 +261,10 @@ namespace TramVerdeelSysteem
 
         public void BtnSimulation_Click(Object sender, EventArgs e)
         {
+            btnSimulation.Enabled = false;
+            btnEndSimulation.Enabled = true;
+            ContextMenu.Enabled = false;
+            menuStrip1.Enabled = false;
             foreach (Tram t in AllTrams)
                 t.SetSector(null);
 
@@ -242,34 +273,39 @@ namespace TramVerdeelSysteem
 
             UpdateMainForm();
 
-            Tram next = null;
-            Sector tempSector;
-            Random random = new Random();
-            List<Tram> SimulationList = new List<Tram>();
+            SimulationList = new List<Tram>();
             foreach (Tram t in AllTrams)
                 SimulationList.Add(t);
 
-            while (SimulationList.Count > 0)
-            {
-                int Trams = SimulationList.Count();
-                next = SimulationList.ElementAt(random.Next(0, (Trams - 1)));
-                SimulationList.Remove(next);
-                tempSector = next.SortTram(AllSectors);
-
-                for (int i = 0; i < AllSectors.Count; i++)
-                {
-                    if (AllSectors[i].Equals(tempSector))
-                    {
-                        AllSectors[i].SetTram(next);
-                    }
-                }
-
-            }
-
-            UpdateMainForm();
+            tSimulation.Enabled = true;
+            
         }
 
         public void UpdateMainForm()
+        {
+            foreach (DataGridView DGV in AllDGV)
+            {
+                DGV.Rows.Clear();
+
+                foreach (Sector sr in AllSectors)
+                {
+                    if (sr.Track.Number == Convert.ToInt32(DGV.Columns[0].Name))
+                    {
+                        string rowString = "";
+                        if (sr.Tram != null)
+                        {
+                            rowString = sr.Tram.TramNr.ToString();
+                        }
+                        DGV.Rows.Add(rowString);
+                    }
+                }
+
+                DGV.ClearSelection();
+                DGV.Rows[0].Cells[0].Selected = false;
+            }
+        }
+
+        public void UpdateMainForm(object sender, FormClosedEventArgs e)
         {
             foreach (DataGridView DGV in AllDGV)
             {
@@ -297,6 +333,42 @@ namespace TramVerdeelSysteem
         {
             TramStatus status = new TramStatus();
             status.Show();
+        }
+
+        private void tSimulation_Tick(object sender, EventArgs e)
+        {
+            Random random = new Random();
+            Tram next;
+            Sector tempSector;
+            if (SimulationList.Count > 0)
+            {
+                int Trams = SimulationList.Count();
+                next = SimulationList.ElementAt(random.Next(0, (Trams - 1)));
+                SimulationList.Remove(next);
+                tempSector = next.SortTram(AllSectors);
+
+                for (int i = 0; i < AllSectors.Count; i++)
+                {
+                    if (AllSectors[i].Equals(tempSector))
+                    {
+                        AllSectors[i].SetTram(next);
+                    }
+                }
+
+                UpdateMainForm();
+                }
+        }
+
+        private void btnEndSimulation_Click(object sender, EventArgs e)
+        {
+            tSimulation.Enabled = false;
+            btnSimulation.Enabled = true;
+            btnEndSimulation.Enabled = false;
+            ContextMenu.Enabled = true;
+            menuStrip1.Enabled = true;
+
+            GetAllInformation();
+            UpdateMainForm();
         }
     }
 }

@@ -42,6 +42,7 @@ namespace TVSLibrary
         public Tram(string RFID)
         {
             this.RFID = RFID;
+            this.db = new DatabaseManager();
         }
 
         /// <summary>
@@ -125,12 +126,32 @@ namespace TVSLibrary
             }
         }
 
+        public string GetTrack(int tracknummer)
+        {
+            string track = string.Empty;
+            string reservation = string.Empty;
+            if (db.CheckTramOnTrack(this.RFID))
+                return "Tram al ingedeeld.";
+
+            reservation = db.GetReservationByRFID(this.RFID);
+            if (reservation != null)
+            {
+                db.InsertSector(this.RFID, reservation);
+                return reservation;
+            }
+            else
+            {
+                int trackId = db.GetTrackIDFromNumber(tracknummer);
+                    track = db.GetEmptyTrack(trackId);
+                db.InsertSector(this.RFID, track);
+                return track;
+            }
+        }
+
         public Sector SortTram(List<Sector> AllSectors)
         {
             bool trackset = false;
             Sector current = null;
-            while (trackset == false)
-            {
                 if (this.Status == Status.Cleaning)
                 {
                 }
@@ -362,7 +383,6 @@ namespace TVSLibrary
                         }
                     }
                 }
-            }
             this.Sector = current;
             return current;
         }

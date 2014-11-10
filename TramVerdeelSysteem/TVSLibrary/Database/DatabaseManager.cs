@@ -144,7 +144,7 @@ namespace TVSLibrary.Database
             int trackID = 0;
             try
             {
-                OracleCommand command = new OracleCommand("SELECT * FROM TRACK WHERE Number = :pTrackNumber");
+                OracleCommand command = new OracleCommand("SELECT * FROM TRACK WHERE TNumber = :pTrackNumber");
                 command.CommandType = CommandType.Text;
                 command.Connection = connection;
                 command.Parameters.Add(":pTrackNumber", trackNumber);
@@ -188,7 +188,7 @@ namespace TVSLibrary.Database
 
                 reader.Read();
 
-                trackNumber = Convert.ToInt32(reader["Number"]);
+                trackNumber = Convert.ToInt32(reader["TNumber"]);
             }
             catch (Exception e)
             {
@@ -336,7 +336,7 @@ namespace TVSLibrary.Database
 
                 while (reader.Read())
                 {
-                    allTracks.Add(new Track(Convert.ToInt32(reader["Length"]), Convert.ToInt32(reader["Number"]), Convert.ToInt32(reader["ID"])));
+                    allTracks.Add(new Track(Convert.ToInt32(reader["Length"]), Convert.ToInt32(reader["TNumber"]), Convert.ToInt32(reader["ID"])));
                 }
 
                 return allTracks;
@@ -384,7 +384,7 @@ namespace TVSLibrary.Database
 
                     if (read.HasRows)
                     {
-                        track = new Track(Convert.ToInt32(read["Length"]), Convert.ToInt32(read["Number"]), Convert.ToInt32(read["ID"]));
+                        track = new Track(Convert.ToInt32(read["Length"]), Convert.ToInt32(read["TNumber"]), Convert.ToInt32(read["ID"]));
                     }
 
                     sector = new Sector(Convert.ToInt32(reader["SNumber"]), track);
@@ -743,7 +743,7 @@ namespace TVSLibrary.Database
         /// <param name="track">setor</param>
         internal void InsertSector(string rfid,string track)
         {
-            OracleCommand command = new OracleCommand("Update sector set Rfid = :rfid where id = :id)");
+            OracleCommand command = new OracleCommand("Update sector set Rfid = :rfid where id = :id");
             command.CommandType = CommandType.Text;
             command.Connection = connection;
             command.Parameters.Add("rfid", rfid);
@@ -772,6 +772,33 @@ namespace TVSLibrary.Database
             try
             {
                 OracleCommand command = new OracleCommand("select * from sector where RFID  is null and rownum =1");
+                command.CommandType = CommandType.Text;
+                command.Connection = connection;
+
+                OracleDataReader reader = command.ExecuteReader();
+
+                reader.Read();
+
+                return Convert.ToString(reader["id"]);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+                return "Error with SQL";
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        internal string GetEmptyTrack(int trackId)
+        {
+            connection.Open();
+            try
+            {
+                OracleCommand command = new OracleCommand("select * from sector where TRACK_ID = :tid AND RFID  is null and rownum =1");
+                command.Parameters.Add("tid", trackId);
                 command.CommandType = CommandType.Text;
                 command.Connection = connection;
 

@@ -31,9 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tramsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sporenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lijnenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dienstenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.veranderStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.schoonmaakToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reparatieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.afsluitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,8 +54,12 @@
             this.Toevoegen = new System.Windows.Forms.ToolStripMenuItem();
             this.verwijderenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verplaatsenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
-            this.veranderStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToCleaningItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToRepairItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnSimulation = new System.Windows.Forms.Button();
+            this.tSimulation = new System.Windows.Forms.Timer(this.components);
+            this.btnEndSimulation = new System.Windows.Forms.Button();
+            this.toevoegenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.pnlTrack.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -68,9 +70,6 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tramsToolStripMenuItem,
-            this.sporenToolStripMenuItem,
-            this.lijnenToolStripMenuItem,
-            this.dienstenToolStripMenuItem,
             this.schoonmaakToolStripMenuItem,
             this.reparatieToolStripMenuItem,
             this.afsluitenToolStripMenuItem});
@@ -84,28 +83,18 @@
             // tramsToolStripMenuItem
             // 
             this.tramsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.veranderStatusToolStripMenuItem});
+            this.veranderStatusToolStripMenuItem,
+            this.toevoegenToolStripMenuItem});
             this.tramsToolStripMenuItem.Name = "tramsToolStripMenuItem";
             this.tramsToolStripMenuItem.Size = new System.Drawing.Size(61, 24);
             this.tramsToolStripMenuItem.Text = "Trams";
             // 
-            // sporenToolStripMenuItem
+            // veranderStatusToolStripMenuItem
             // 
-            this.sporenToolStripMenuItem.Name = "sporenToolStripMenuItem";
-            this.sporenToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
-            this.sporenToolStripMenuItem.Text = "Sporen";
-            // 
-            // lijnenToolStripMenuItem
-            // 
-            this.lijnenToolStripMenuItem.Name = "lijnenToolStripMenuItem";
-            this.lijnenToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
-            this.lijnenToolStripMenuItem.Text = "Lijnen";
-            // 
-            // dienstenToolStripMenuItem
-            // 
-            this.dienstenToolStripMenuItem.Name = "dienstenToolStripMenuItem";
-            this.dienstenToolStripMenuItem.Size = new System.Drawing.Size(79, 24);
-            this.dienstenToolStripMenuItem.Text = "Diensten";
+            this.veranderStatusToolStripMenuItem.Name = "veranderStatusToolStripMenuItem";
+            this.veranderStatusToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.veranderStatusToolStripMenuItem.Text = "Verander status";
+            this.veranderStatusToolStripMenuItem.Click += new System.EventHandler(this.veranderStatusToolStripMenuItem_Click);
             // 
             // schoonmaakToolStripMenuItem
             // 
@@ -152,7 +141,7 @@
             this.pnlTrack.Location = new System.Drawing.Point(12, 47);
             this.pnlTrack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlTrack.Name = "pnlTrack";
-            this.pnlTrack.Size = new System.Drawing.Size(230, 163);
+            this.pnlTrack.Size = new System.Drawing.Size(230, 129);
             this.pnlTrack.TabIndex = 4;
             // 
             // tbTrackNumber
@@ -279,7 +268,9 @@
             this.Tram.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Toevoegen,
             this.verwijderenToolStripMenuItem,
-            this.verplaatsenToolStripMenuItem});
+            this.verplaatsenToolStripMenuItem,
+            this.ToCleaningItem,
+            this.ToRepairItem});
             this.Tram.Name = "Tram";
             this.Tram.Size = new System.Drawing.Size(120, 24);
             this.Tram.Text = "Tram";
@@ -287,47 +278,78 @@
             // Toevoegen
             // 
             this.Toevoegen.Name = "Toevoegen";
-            this.Toevoegen.Size = new System.Drawing.Size(157, 24);
+            this.Toevoegen.Size = new System.Drawing.Size(197, 24);
             this.Toevoegen.Text = "Toevoegen";
             this.Toevoegen.Click += new System.EventHandler(this.AddTram);
             // 
             // verwijderenToolStripMenuItem
             // 
             this.verwijderenToolStripMenuItem.Name = "verwijderenToolStripMenuItem";
-            this.verwijderenToolStripMenuItem.Size = new System.Drawing.Size(157, 24);
+            this.verwijderenToolStripMenuItem.Size = new System.Drawing.Size(197, 24);
             this.verwijderenToolStripMenuItem.Text = "Verwijderen";
             this.verwijderenToolStripMenuItem.Click += new System.EventHandler(this.DeleteTram);
             // 
             // verplaatsenToolStripMenuItem
             // 
             this.verplaatsenToolStripMenuItem.Name = "verplaatsenToolStripMenuItem";
-            this.verplaatsenToolStripMenuItem.Size = new System.Drawing.Size(157, 24);
+            this.verplaatsenToolStripMenuItem.Size = new System.Drawing.Size(197, 24);
             this.verplaatsenToolStripMenuItem.Text = "Verplaatsen";
             this.verplaatsenToolStripMenuItem.Click += new System.EventHandler(this.MoveTram);
             // 
-            // button1
+            // ToCleaningItem
             // 
-            this.button1.Location = new System.Drawing.Point(18, 231);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(217, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Simulatie";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.BtnSimulation_Click);
+            this.ToCleaningItem.Name = "ToCleaningItem";
+            this.ToCleaningItem.Size = new System.Drawing.Size(197, 24);
+            this.ToCleaningItem.Text = "Naar schoonmaak";
+            this.ToCleaningItem.Click += new System.EventHandler(this.ToCleaning);
             // 
-            // veranderStatusToolStripMenuItem
+            // ToRepairItem
             // 
-            this.veranderStatusToolStripMenuItem.Name = "veranderStatusToolStripMenuItem";
-            this.veranderStatusToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.veranderStatusToolStripMenuItem.Text = "Verander status";
-            this.veranderStatusToolStripMenuItem.Click += new System.EventHandler(this.veranderStatusToolStripMenuItem_Click);
+            this.ToRepairItem.Name = "ToRepairItem";
+            this.ToRepairItem.Size = new System.Drawing.Size(197, 24);
+            this.ToRepairItem.Text = "Naar Reparatie";
+            this.ToRepairItem.Click += new System.EventHandler(this.ToRepair);
+            // 
+            // btnSimulation
+            // 
+            this.btnSimulation.Location = new System.Drawing.Point(21, 190);
+            this.btnSimulation.Name = "btnSimulation";
+            this.btnSimulation.Size = new System.Drawing.Size(217, 23);
+            this.btnSimulation.TabIndex = 7;
+            this.btnSimulation.Text = "Simulatie";
+            this.btnSimulation.UseVisualStyleBackColor = true;
+            this.btnSimulation.Click += new System.EventHandler(this.BtnSimulation_Click);
+            // 
+            // tSimulation
+            // 
+            this.tSimulation.Interval = 1000;
+            this.tSimulation.Tick += new System.EventHandler(this.tSimulation_Tick);
+            // 
+            // btnEndSimulation
+            // 
+            this.btnEndSimulation.Enabled = false;
+            this.btnEndSimulation.Location = new System.Drawing.Point(21, 228);
+            this.btnEndSimulation.Name = "btnEndSimulation";
+            this.btnEndSimulation.Size = new System.Drawing.Size(217, 23);
+            this.btnEndSimulation.TabIndex = 8;
+            this.btnEndSimulation.Text = "Eindig simulatie";
+            this.btnEndSimulation.UseVisualStyleBackColor = true;
+            this.btnEndSimulation.Click += new System.EventHandler(this.btnEndSimulation_Click);
+            // 
+            // toevoegenToolStripMenuItem
+            // 
+            this.toevoegenToolStripMenuItem.Name = "toevoegenToolStripMenuItem";
+            this.toevoegenToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.toevoegenToolStripMenuItem.Text = "Toevoegen";
+            this.toevoegenToolStripMenuItem.Click += new System.EventHandler(this.AddTram);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1273, 804);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnEndSimulation);
+            this.Controls.Add(this.btnSimulation);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlTrack);
@@ -352,9 +374,6 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem tramsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sporenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem lijnenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dienstenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem schoonmaakToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reparatieToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem afsluitenToolStripMenuItem;
@@ -375,9 +394,14 @@
         private System.Windows.Forms.ToolStripMenuItem ToggleBlokkeren;
         private System.Windows.Forms.ToolStripMenuItem Tram;
         private System.Windows.Forms.ToolStripMenuItem Toevoegen;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSimulation;
         private System.Windows.Forms.ToolStripMenuItem verwijderenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verplaatsenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem veranderStatusToolStripMenuItem;
+        private System.Windows.Forms.Timer tSimulation;
+        private System.Windows.Forms.Button btnEndSimulation;
+        private System.Windows.Forms.ToolStripMenuItem ToCleaningItem;
+        private System.Windows.Forms.ToolStripMenuItem ToRepairItem;
+        private System.Windows.Forms.ToolStripMenuItem toevoegenToolStripMenuItem;
     }
 }
