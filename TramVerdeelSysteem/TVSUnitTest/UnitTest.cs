@@ -11,7 +11,7 @@ namespace TVSUnitTest
         public void TestTram()
         {
             Sector sector = new Sector(1, new Track(1, 1, new Remise("TestRemise")));
-            TramDriver td = new TramDriver(1, "TestName");
+            TramDriver td = new TramDriver(1, "TestName", 4);
 
             Tram tram = new Tram("TestType", "1",1);
             Assert.AreEqual(tram.TramType, "TestType");
@@ -24,9 +24,7 @@ namespace TVSUnitTest
             Assert.AreEqual(tram.Sector, sector);
 
             Assert.AreEqual(tram.Status, Status.Service);
-            tram.SendToCleaning();
             Assert.AreEqual(tram.Status, Status.Cleaning);
-            tram.SendToRepair();
             Assert.AreEqual(tram.Status, Status.Defect);
             tram.SetStatus(Status.Parked);
             Assert.AreEqual(tram.Status, Status.Parked);

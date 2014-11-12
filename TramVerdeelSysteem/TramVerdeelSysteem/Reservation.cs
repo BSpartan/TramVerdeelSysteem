@@ -49,6 +49,7 @@ namespace TramVerdeelSysteem
             if (succes)
             {
                 dbm.ReserveTrack(RFID, trackID);
+                this.Close();
             }
         }
 

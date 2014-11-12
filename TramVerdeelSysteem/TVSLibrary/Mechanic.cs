@@ -15,8 +15,8 @@ namespace TVSLibrary
         /// </summary>
         /// <param name="userid">ID of the user</param>
         /// <param name="name">Name of the user</param>
-        public Mechanic(int userid, string name)
-            : base(userid, name)
+        public Mechanic(int userid, string name, int function)
+            : base(userid, name, function)
         {
         }
 
@@ -33,9 +33,9 @@ namespace TVSLibrary
         /// Sets a tram to service
         /// </summary>
         /// <param name="tram">Tram to set</param>
-        public void SetService(Tram tram)
+        public void SetService(int ID)
         {
-            //dbm.SetService(id, false);
+            dbm.SetService(ID);
         }
     }
 }

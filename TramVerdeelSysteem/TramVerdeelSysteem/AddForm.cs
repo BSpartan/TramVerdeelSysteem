@@ -41,6 +41,7 @@ namespace TramVerdeelSysteem
                 string RFID = dbm.GetRFIDFromTramNumber(Convert.ToInt32(TbTramNumber.Text));
                 Tram tram = new Tram(RFID);
                 tram.GetTrack(Convert.ToInt32(tbTrackNr.Text));
+                this.Close();
             }
         }
 

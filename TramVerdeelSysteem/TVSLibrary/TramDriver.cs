@@ -13,8 +13,8 @@ namespace TVSLibrary
         /// </summary>
         /// <param name="userid">ID of the user</param>
         /// <param name="name">Name of the user</param>
-        public TramDriver(int userid, string name)
-            : base(userid, name)
+        public TramDriver(int userid, string name, int function)
+            : base(userid, name, function)
         {
         }
 

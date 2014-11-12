@@ -25,10 +25,12 @@ namespace TramVerdeelSysteem
         private int SelectedSector = 0;
         private int SelectedTrack = 0;
         private DataGridView SelectedDataGrid;
+        private User user;
 
 
         public MainForm(User user)
         {
+            this.user = user;
             InitializeComponent();
         }
 
@@ -59,14 +61,14 @@ namespace TramVerdeelSysteem
 
         private void schoonmaakToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Cleaner cleaner = new Cleaner(1, "Henk");
+            Cleaner cleaner = new Cleaner(1, "Henk", 4);
             CleaningForm clean = new CleaningForm(cleaner);
             clean.Show();
         }
         
         private void reparatieToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Mechanic mechanic = new Mechanic(1, "Henk");
+            Mechanic mechanic = new Mechanic(1, "Henk", 3);
             RepairForm repair = new RepairForm(mechanic);
             repair.Show();
         }
@@ -110,13 +112,15 @@ namespace TramVerdeelSysteem
         {
             AddTram addTram = new AddTram(SelectedTrack);
             addTram.Show();
-            addTram.FormClosed += new FormClosedEventHandler(UpdateMainForm);
+            addTram.FormClosed += new FormClosedEventHandler(CloseForms);
         }
 
         private void DeleteTram(object sender, EventArgs e)
         {
-            MessageBox.Show("Weet je zeker dat je de tram op spoor: " + SelectedTrack.ToString() + ", sector: " + SelectedSector.ToString() + " wilt verwijderen.", "Let op!", MessageBoxButtons.YesNo);
-
+            Tram tram = new Tram(dbm.GetRFIDFromTramNumber(Convert.ToInt32(SelectedDataGrid[0, SelectedSector - 1].Value)));
+            dbm.RemoveTramFromSector(tram.RFID);
+            DatabaseUpdateMainForm();
+            
         }
 
         private void MoveTram(object sender, EventArgs e)
@@ -131,12 +135,14 @@ namespace TramVerdeelSysteem
         {
             Tram tram = new Tram(dbm.GetRFIDFromTramNumber(Convert.ToInt32(SelectedDataGrid[0, SelectedSector - 1].Value)));
             tram.AddMaintenace(tram, true, false);
+            MessageBox.Show("Aan schoonmaaklijst toegevoegd", "Toegevoegd!");
         }
 
         private void ToRepair(object sender, EventArgs e)
         {
             Tram tram = new Tram(dbm.GetRFIDFromTramNumber(Convert.ToInt32(SelectedDataGrid[0, SelectedSector - 1].Value)));
             tram.AddMaintenace(tram, false, true);
+            MessageBox.Show("Aan reparatielijst toegevoegd", "Toegevoegd!");
         }
 
         private void GetAllInformation()
@@ -148,7 +154,6 @@ namespace TramVerdeelSysteem
             AllTrams = dbm.GetAllTrams();
 
             //GenerateSectorInDatabase();
-            GenerateGUI();
         }
 
         private void GenerateGUI()
@@ -229,7 +234,6 @@ namespace TramVerdeelSysteem
                     {
                         Toevoegen.Enabled = true;
                         verwijderenToolStripMenuItem.Enabled = false;
-                        verplaatsenToolStripMenuItem.Enabled = false;
                         ToCleaningItem.Enabled = false;
                         ToRepairItem.Enabled = false;
                     }
@@ -237,7 +241,6 @@ namespace TramVerdeelSysteem
                     {
                         Toevoegen.Enabled = false;
                         verwijderenToolStripMenuItem.Enabled = true;
-                        verplaatsenToolStripMenuItem.Enabled = true;
                         ToCleaningItem.Enabled = true;
                         ToRepairItem.Enabled = true;
                     }
@@ -265,8 +268,41 @@ namespace TramVerdeelSysteem
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            UpdatelbReservations();
-            GetAllInformation();
+            switch (user.Function)
+            {
+                case 1:
+                    UpdatelbReservations();
+                    GetAllInformation();
+                    GenerateGUI();
+                    break;
+                case 2:
+                    UpdatelbReservations();
+                    GetAllInformation();
+                    GenerateGUI();
+                    break;
+                case 3:
+                    InputForm input = new InputForm();
+                    input.Show();
+                    this.Close();
+                    break;
+                case 4:
+                    lbReservations.Enabled = false;
+                    tramsToolStripMenuItem.Enabled = false;
+                    schoonmaakToolStripMenuItem.Enabled = false;
+                    btnAddReservation.Enabled = false;
+                    btnDeleteReservation.Enabled = false;
+                    btnSimulation.Enabled = false;
+                    break;
+                case 5:
+                    lbReservations.Enabled = false;
+                    tramsToolStripMenuItem.Enabled = false;
+                    reparatieToolStripMenuItem.Enabled = false;
+                    btnAddReservation.Enabled = false;
+                    btnDeleteReservation.Enabled = false;
+                    btnSimulation.Enabled = false;
+                    break;
+            }
+            
         }
 
         public void BtnSimulation_Click(Object sender, EventArgs e)
@@ -315,7 +351,7 @@ namespace TramVerdeelSysteem
             }
         }
 
-        public void UpdateMainForm(object sender, FormClosedEventArgs e)
+        public void DatabaseUpdateMainForm()
         {
             GetAllInformation();
             UpdatelbReservations();
@@ -340,6 +376,11 @@ namespace TramVerdeelSysteem
                 DGV.ClearSelection();
                 DGV.Rows[0].Cells[0].Selected = false;
             }
+        }
+
+        public void CloseForms(object sender, FormClosedEventArgs e)
+        {
+            DatabaseUpdateMainForm();
         }
 
         private void veranderStatusToolStripMenuItem_Click(object sender, EventArgs e)
@@ -382,6 +423,16 @@ namespace TramVerdeelSysteem
 
             GetAllInformation();
             UpdateMainForm();
+        }
+
+        private void afsluitenToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void uitloggenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

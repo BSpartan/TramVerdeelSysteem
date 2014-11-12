@@ -80,7 +80,14 @@ namespace TramVerdeelSysteem
         /// <param name="e"></param>
         void rfid_Tag(object sender, TagEventArgs e)
         {
-            lbInput.Text = e.Tag;
+            try
+            {
+                this.lbInput.Text = e.Tag;
+            }
+            
+            catch(Exception Err)
+            {
+            }
         }
 
         /// <summary>

@@ -54,7 +54,6 @@
             this.Tram = new System.Windows.Forms.ToolStripMenuItem();
             this.Toevoegen = new System.Windows.Forms.ToolStripMenuItem();
             this.verwijderenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verplaatsenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToCleaningItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToRepairItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSimulation = new System.Windows.Forms.Button();
@@ -75,8 +74,8 @@
             this.afsluitenToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1273, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(955, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -131,12 +130,14 @@
             this.uitloggenToolStripMenuItem.Name = "uitloggenToolStripMenuItem";
             this.uitloggenToolStripMenuItem.Size = new System.Drawing.Size(144, 24);
             this.uitloggenToolStripMenuItem.Text = "Uitloggen";
+            this.uitloggenToolStripMenuItem.Click += new System.EventHandler(this.uitloggenToolStripMenuItem_Click);
             // 
             // afsluitenToolStripMenuItem1
             // 
             this.afsluitenToolStripMenuItem1.Name = "afsluitenToolStripMenuItem1";
             this.afsluitenToolStripMenuItem1.Size = new System.Drawing.Size(144, 24);
             this.afsluitenToolStripMenuItem1.Text = "Afsluiten";
+            this.afsluitenToolStripMenuItem1.Click += new System.EventHandler(this.afsluitenToolStripMenuItem1_Click);
             // 
             // pnlTrack
             // 
@@ -145,44 +146,46 @@
             this.pnlTrack.Controls.Add(this.lbTrackNumber);
             this.pnlTrack.Controls.Add(this.tbTramNumber);
             this.pnlTrack.Controls.Add(this.lbTramNumber);
-            this.pnlTrack.Location = new System.Drawing.Point(12, 47);
-            this.pnlTrack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlTrack.Location = new System.Drawing.Point(9, 38);
+            this.pnlTrack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlTrack.Name = "pnlTrack";
-            this.pnlTrack.Size = new System.Drawing.Size(230, 129);
+            this.pnlTrack.Size = new System.Drawing.Size(173, 105);
             this.pnlTrack.TabIndex = 4;
             // 
             // tbTrackNumber
             // 
-            this.tbTrackNumber.Location = new System.Drawing.Point(9, 87);
-            this.tbTrackNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbTrackNumber.Location = new System.Drawing.Point(7, 71);
+            this.tbTrackNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbTrackNumber.Name = "tbTrackNumber";
-            this.tbTrackNumber.Size = new System.Drawing.Size(204, 22);
+            this.tbTrackNumber.Size = new System.Drawing.Size(154, 20);
             this.tbTrackNumber.TabIndex = 9;
             // 
             // lbTrackNumber
             // 
             this.lbTrackNumber.AutoSize = true;
-            this.lbTrackNumber.Location = new System.Drawing.Point(9, 64);
+            this.lbTrackNumber.Location = new System.Drawing.Point(7, 52);
+            this.lbTrackNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbTrackNumber.Name = "lbTrackNumber";
-            this.lbTrackNumber.Size = new System.Drawing.Size(30, 17);
+            this.lbTrackNumber.Size = new System.Drawing.Size(27, 15);
             this.lbTrackNumber.TabIndex = 8;
             this.lbTrackNumber.Text = "Lijn";
             this.lbTrackNumber.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // tbTramNumber
             // 
-            this.tbTramNumber.Location = new System.Drawing.Point(5, 30);
-            this.tbTramNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbTramNumber.Location = new System.Drawing.Point(4, 24);
+            this.tbTramNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbTramNumber.Name = "tbTramNumber";
-            this.tbTramNumber.Size = new System.Drawing.Size(207, 22);
+            this.tbTramNumber.Size = new System.Drawing.Size(156, 20);
             this.tbTramNumber.TabIndex = 7;
             // 
             // lbTramNumber
             // 
             this.lbTramNumber.AutoSize = true;
-            this.lbTramNumber.Location = new System.Drawing.Point(5, 7);
+            this.lbTramNumber.Location = new System.Drawing.Point(4, 6);
+            this.lbTramNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbTramNumber.Name = "lbTramNumber";
-            this.lbTramNumber.Size = new System.Drawing.Size(41, 17);
+            this.lbTramNumber.Size = new System.Drawing.Size(36, 15);
             this.lbTramNumber.TabIndex = 6;
             this.lbTramNumber.Text = "Tram";
             this.lbTramNumber.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -190,10 +193,10 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Location = new System.Drawing.Point(267, 47);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Location = new System.Drawing.Point(200, 38);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(994, 746);
+            this.panel1.Size = new System.Drawing.Size(746, 606);
             this.panel1.TabIndex = 5;
             // 
             // groupBox1
@@ -201,11 +204,11 @@
             this.groupBox1.Controls.Add(this.btnDeleteReservation);
             this.groupBox1.Controls.Add(this.btnAddReservation);
             this.groupBox1.Controls.Add(this.lbReservations);
-            this.groupBox1.Location = new System.Drawing.Point(13, 274);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Location = new System.Drawing.Point(10, 223);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(229, 519);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(172, 422);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Reserveringen";
@@ -213,10 +216,10 @@
             // btnDeleteReservation
             // 
             this.btnDeleteReservation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteReservation.Location = new System.Drawing.Point(42, 472);
-            this.btnDeleteReservation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDeleteReservation.Location = new System.Drawing.Point(32, 384);
+            this.btnDeleteReservation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDeleteReservation.Name = "btnDeleteReservation";
-            this.btnDeleteReservation.Size = new System.Drawing.Size(31, 31);
+            this.btnDeleteReservation.Size = new System.Drawing.Size(23, 25);
             this.btnDeleteReservation.TabIndex = 2;
             this.btnDeleteReservation.Text = "x";
             this.btnDeleteReservation.UseVisualStyleBackColor = true;
@@ -225,10 +228,10 @@
             // btnAddReservation
             // 
             this.btnAddReservation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddReservation.Location = new System.Drawing.Point(5, 472);
-            this.btnAddReservation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddReservation.Location = new System.Drawing.Point(4, 384);
+            this.btnAddReservation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAddReservation.Name = "btnAddReservation";
-            this.btnAddReservation.Size = new System.Drawing.Size(31, 31);
+            this.btnAddReservation.Size = new System.Drawing.Size(23, 25);
             this.btnAddReservation.TabIndex = 1;
             this.btnAddReservation.Text = "+";
             this.btnAddReservation.UseVisualStyleBackColor = true;
@@ -237,13 +240,12 @@
             // lbReservations
             // 
             this.lbReservations.FormattingEnabled = true;
-            this.lbReservations.ItemHeight = 16;
             this.lbReservations.Items.AddRange(new object[] {
             " "});
-            this.lbReservations.Location = new System.Drawing.Point(5, 32);
-            this.lbReservations.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbReservations.Location = new System.Drawing.Point(4, 26);
+            this.lbReservations.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lbReservations.Name = "lbReservations";
-            this.lbReservations.Size = new System.Drawing.Size(217, 436);
+            this.lbReservations.Size = new System.Drawing.Size(164, 355);
             this.lbReservations.TabIndex = 0;
             // 
             // ContextMenu
@@ -275,7 +277,6 @@
             this.Tram.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Toevoegen,
             this.verwijderenToolStripMenuItem,
-            this.verplaatsenToolStripMenuItem,
             this.ToCleaningItem,
             this.ToRepairItem});
             this.Tram.Name = "Tram";
@@ -296,13 +297,6 @@
             this.verwijderenToolStripMenuItem.Text = "Verwijderen";
             this.verwijderenToolStripMenuItem.Click += new System.EventHandler(this.DeleteTram);
             // 
-            // verplaatsenToolStripMenuItem
-            // 
-            this.verplaatsenToolStripMenuItem.Name = "verplaatsenToolStripMenuItem";
-            this.verplaatsenToolStripMenuItem.Size = new System.Drawing.Size(197, 24);
-            this.verplaatsenToolStripMenuItem.Text = "Verplaatsen";
-            this.verplaatsenToolStripMenuItem.Click += new System.EventHandler(this.MoveTram);
-            // 
             // ToCleaningItem
             // 
             this.ToCleaningItem.Name = "ToCleaningItem";
@@ -319,9 +313,10 @@
             // 
             // btnSimulation
             // 
-            this.btnSimulation.Location = new System.Drawing.Point(21, 190);
+            this.btnSimulation.Location = new System.Drawing.Point(16, 154);
+            this.btnSimulation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSimulation.Name = "btnSimulation";
-            this.btnSimulation.Size = new System.Drawing.Size(217, 23);
+            this.btnSimulation.Size = new System.Drawing.Size(163, 19);
             this.btnSimulation.TabIndex = 7;
             this.btnSimulation.Text = "Simulatie";
             this.btnSimulation.UseVisualStyleBackColor = true;
@@ -335,9 +330,10 @@
             // btnEndSimulation
             // 
             this.btnEndSimulation.Enabled = false;
-            this.btnEndSimulation.Location = new System.Drawing.Point(21, 228);
+            this.btnEndSimulation.Location = new System.Drawing.Point(16, 185);
+            this.btnEndSimulation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEndSimulation.Name = "btnEndSimulation";
-            this.btnEndSimulation.Size = new System.Drawing.Size(217, 23);
+            this.btnEndSimulation.Size = new System.Drawing.Size(163, 19);
             this.btnEndSimulation.TabIndex = 8;
             this.btnEndSimulation.Text = "Eindig simulatie";
             this.btnEndSimulation.UseVisualStyleBackColor = true;
@@ -345,9 +341,9 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1273, 800);
+            this.ClientSize = new System.Drawing.Size(955, 652);
             this.Controls.Add(this.btnEndSimulation);
             this.Controls.Add(this.btnSimulation);
             this.Controls.Add(this.groupBox1);
@@ -355,9 +351,9 @@
             this.Controls.Add(this.pnlTrack);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.Text = "Tram Verdeel Systeem";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -396,7 +392,6 @@
         private System.Windows.Forms.ToolStripMenuItem Toevoegen;
         private System.Windows.Forms.Button btnSimulation;
         private System.Windows.Forms.ToolStripMenuItem verwijderenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem verplaatsenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem veranderStatusToolStripMenuItem;
         private System.Windows.Forms.Timer tSimulation;
         private System.Windows.Forms.Button btnEndSimulation;

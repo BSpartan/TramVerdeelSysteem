@@ -31,7 +31,7 @@ namespace TVSLibrary
         /// <returns>String of the reservation</returns>
         public override string ToString()
         {
-            return (dbm.GetNumberFromTrackID(this.TrackID) + " - " + dbm.GetTramNumberFromRFID(this.RFID));
+            return (dbm.GetTramNumberFromRFID(this.RFID) + " - " + dbm.GetNumberFromTrackID(this.TrackID));
         }
     }
 }

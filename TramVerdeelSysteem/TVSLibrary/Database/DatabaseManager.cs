@@ -298,7 +298,6 @@ namespace TVSLibrary.Database
             return null;
         }
 
-        //FIX DEZE
         public void SetService(int id)
         {
             connection.Open();
@@ -392,7 +391,7 @@ namespace TVSLibrary.Database
                     if (reader["RFID"] != DBNull.Value)
                     {
                         OracleCommand commando2 = new OracleCommand("SELECT * FROM Tram WHERE RFID = :id");
-                        commando2.Parameters.Add("id", Convert.ToInt32(reader["RFID"]));
+                        commando2.Parameters.Add("id", Convert.ToString(reader["RFID"]));
 
                         commando2.CommandType = CommandType.Text;
                         commando2.Connection = connection;
@@ -535,19 +534,19 @@ namespace TVSLibrary.Database
                 switch (function)
                 {
                     case 1:
-                        user = new Manager(Convert.ToInt16(reader["ID"]), Convert.ToString(reader["Name"]));
+                        user = new Manager(Convert.ToInt16(reader["ID"]), Convert.ToString(reader["Name"]), function);
                         break;
                     case 2:
-                        user = new LodgeEmployee(Convert.ToInt16(reader["ID"]), Convert.ToString(reader["Name"]));
+                        user = new LodgeEmployee(Convert.ToInt16(reader["ID"]), Convert.ToString(reader["Name"]), function);
                         break;
                     case 3:
-                        user = new TramDriver(Convert.ToInt16(reader["ID"]), Convert.ToString(reader["Name"]));
+                        user = new TramDriver(Convert.ToInt16(reader["ID"]), Convert.ToString(reader["Name"]), function);
                         break;
                     case 4:
-                        user = new Mechanic(Convert.ToInt16(reader["ID"]), Convert.ToString(reader["Name"]));
+                        user = new Mechanic(Convert.ToInt16(reader["ID"]), Convert.ToString(reader["Name"]), function);
                         break;
                     case 5:
-                        user = new Cleaner(Convert.ToInt16(reader["ID"]), Convert.ToString(reader["Name"]));
+                        user = new Cleaner(Convert.ToInt16(reader["ID"]), Convert.ToString(reader["Name"]), function);
                         break;
                 }
             }
@@ -639,7 +638,7 @@ namespace TVSLibrary.Database
         /// </summary>
         /// <param name="rfid">determines the tram</param>
         /// <returns>tram type</returns>
-        internal string GetTramByRfid(string rfid)
+        public string GetTramByRfid(string rfid)
         {
             connection.Open();
 
@@ -762,6 +761,28 @@ namespace TVSLibrary.Database
                 connection.Close();
             }
         }
+
+        public void RemoveTramFromSector(string RFID)
+        {
+            OracleCommand command = new OracleCommand("Update sector set Rfid = NULL where RFID = :rfid");
+            command.CommandType = CommandType.Text;
+            command.Connection = connection;
+            command.Parameters.Add(":rfid", Convert.ToString(RFID));
+            connection.Open();
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
         /// <summary>
         /// gets an empty sectorid
         /// </summary>

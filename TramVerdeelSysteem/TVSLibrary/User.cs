@@ -12,10 +12,13 @@ namespace TVSLibrary
 
         public string Name { get; private set; }
 
-        public User(int userid, string name)
+        public int Function { get; private set; }
+
+        public User(int userid, string name, int function)
         {
             this.UserId = userid;
             this.Name = name;
+            this.Function = function;
         }
     }
 }

@@ -43,6 +43,7 @@ namespace TVSLibrary
         {
             this.RFID = RFID;
             this.db = new DatabaseManager();
+            this.TramType = db.GetTramByRfid(RFID);
         }
 
         /// <summary>

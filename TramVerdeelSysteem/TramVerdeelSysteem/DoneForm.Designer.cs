@@ -40,7 +40,7 @@
             this.lbTramNumber.AutoSize = true;
             this.lbTramNumber.Location = new System.Drawing.Point(23, 26);
             this.lbTramNumber.Name = "lbTramNumber";
-            this.lbTramNumber.Size = new System.Drawing.Size(92, 17);
+            this.lbTramNumber.Size = new System.Drawing.Size(88, 16);
             this.lbTramNumber.TabIndex = 0;
             this.lbTramNumber.Text = "Tramnummer";
             // 
@@ -49,7 +49,7 @@
             this.lbDate.AutoSize = true;
             this.lbDate.Location = new System.Drawing.Point(25, 100);
             this.lbDate.Name = "lbDate";
-            this.lbDate.Size = new System.Drawing.Size(49, 17);
+            this.lbDate.Size = new System.Drawing.Size(47, 16);
             this.lbDate.TabIndex = 2;
             this.lbDate.Text = "Datum";
             // 
@@ -92,7 +92,7 @@
             this.Controls.Add(this.lbDate);
             this.Controls.Add(this.lbTramNumber);
             this.Name = "DoneForm";
-            this.Text = "RepairDoneForm";
+            this.Text = "Tram log";
             this.ResumeLayout(false);
             this.PerformLayout();
 

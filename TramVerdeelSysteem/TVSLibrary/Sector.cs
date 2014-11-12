@@ -61,6 +61,7 @@ namespace TVSLibrary
         public void ToggleBlocked()
         {
             this.Blocked = !this.Blocked;
+
         }
     }
 }

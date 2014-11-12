@@ -15,8 +15,8 @@ namespace TVSLibrary
         /// </summary>
         /// <param name="userid">ID of the user</param>
         /// <param name="name">Name of the User</param>
-        public Cleaner(int userid, string name)
-            : base(userid, name)
+        public Cleaner(int userid, string name, int function)
+            : base(userid, name, function)
         {
         }
 
@@ -33,9 +33,9 @@ namespace TVSLibrary
         /// Sets the tram to 'Service'.
         /// </summary>
         /// <param name="tram">The tram to set the status of.</param>
-        public void SetService(Tram tram)
+        public void SetService(int ID)
         {
-            tram.SetStatus(Status.Service);
+            dbm.SetService(ID);
         }
     }
 }
