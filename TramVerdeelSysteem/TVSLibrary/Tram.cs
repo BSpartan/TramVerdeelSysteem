@@ -64,22 +64,6 @@ namespace TVSLibrary
         }
 
         /// <summary>
-        /// Sets the status of the tram to cleaning
-        /// </summary>
-        public void SendToCleaning()
-        {
-            this.Status = Status.Cleaning;
-        }
-
-        /// <summary>
-        /// Sets the status of the tram to repair
-        /// </summary>
-        public void SendToRepair()
-        {
-            this.Status = Status.Defect;
-        }
-
-        /// <summary>
         /// Sets the tram driver
         /// </summary>
         /// <param name="tramdriver">Tram driver to set to tram</param>
@@ -116,6 +100,7 @@ namespace TVSLibrary
             if (reservation != null)
             {
                 db.InsertSector(this.RFID, reservation);
+                db.RemoveReservation(this.RFID);
                 return reservation;
             }
             else
@@ -136,7 +121,9 @@ namespace TVSLibrary
             reservation = db.GetReservationByRFID(this.RFID);
             if (reservation != null)
             {
+                reservation = db.GetEmptyTrack(Convert.ToInt32(reservation));
                 db.InsertSector(this.RFID, reservation);
+                db.RemoveReservation(this.RFID);
                 return reservation;
             }
             else

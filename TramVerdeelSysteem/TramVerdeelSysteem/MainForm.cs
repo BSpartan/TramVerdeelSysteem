@@ -30,11 +30,11 @@ namespace TramVerdeelSysteem
         public MainForm(User user)
         {
             InitializeComponent();
-            UpdatelbReservations();
         }
 
         public void UpdatelbReservations()
         {
+            lbReservations.Items.Clear();
             List<TVSLibrary.Reservation> reservations = dbm.GetReservations();
 
             foreach (TVSLibrary.Reservation reservation in reservations)
@@ -73,19 +73,26 @@ namespace TramVerdeelSysteem
 
         private void ToggleBlock(object sender, EventArgs e)
         {
+            bool prevOk = true;
+            bool currentOk;
             for (int i = 0; i < AllSectors.Count; i++)
             {
                 if (AllSectors[i].Track.Number == SelectedTrack && AllSectors[i].Number <= SelectedSector)
                 {
-                    if (AllSectors[i].Track.Length > SelectedSector - 1)
+
+                    if(AllSectors[i + 1].Track.Number == SelectedTrack)
                     {
-                            if (SelectedDataGrid[0, (AllSectors[i].Number - 1)].Style.BackColor == Color.DarkGray)
-                                SelectedDataGrid[0, (AllSectors[i].Number - 1)].Style.BackColor = Color.White;
-                            else
-                                SelectedDataGrid[0, (AllSectors[i].Number - 1)].Style.BackColor = Color.DarkGray;
-                            AllSectors[i].ToggleBlocked();
+                        if(AllSectors[i + 1].Blocked || AllSectors[i + 1].Tram != null)
+                            currentOk = false;
+                        else
+                            currentOk = true;
                     }
                     else
+                    {
+                        currentOk = true;
+                    }
+
+                    if(currentOk && prevOk)
                     {
                         if (SelectedDataGrid[0, (AllSectors[i].Number - 1)].Style.BackColor == Color.DarkGray)
                             SelectedDataGrid[0, (AllSectors[i].Number - 1)].Style.BackColor = Color.White;
@@ -93,6 +100,8 @@ namespace TramVerdeelSysteem
                             SelectedDataGrid[0, (AllSectors[i].Number - 1)].Style.BackColor = Color.DarkGray;
                         AllSectors[i].ToggleBlocked();
                     }
+
+                    prevOk = currentOk;
                 }
             }
         }
@@ -120,14 +129,15 @@ namespace TramVerdeelSysteem
 
         private void ToCleaning(object sender, EventArgs e)
         {
+            Tram tram = new Tram(dbm.GetRFIDFromTramNumber(Convert.ToInt32(SelectedDataGrid[0, SelectedSector - 1].Value)));
+            tram.AddMaintenace(tram, true, false);
         }
 
         private void ToRepair(object sender, EventArgs e)
         {
-
+            Tram tram = new Tram(dbm.GetRFIDFromTramNumber(Convert.ToInt32(SelectedDataGrid[0, SelectedSector - 1].Value)));
+            tram.AddMaintenace(tram, false, true);
         }
-
-
 
         private void GetAllInformation()
         {
@@ -307,6 +317,9 @@ namespace TramVerdeelSysteem
 
         public void UpdateMainForm(object sender, FormClosedEventArgs e)
         {
+            GetAllInformation();
+            UpdatelbReservations();
+
             foreach (DataGridView DGV in AllDGV)
             {
                 DGV.Rows.Clear();

@@ -746,8 +746,8 @@ namespace TVSLibrary.Database
             OracleCommand command = new OracleCommand("Update sector set Rfid = :rfid where id = :id");
             command.CommandType = CommandType.Text;
             command.Connection = connection;
-            command.Parameters.Add("rfid", rfid);
-            command.Parameters.Add("id", Convert.ToInt32(track));
+            command.Parameters.Add(":rfid", rfid);
+            command.Parameters.Add(":id", Convert.ToInt32(track));
             connection.Open();
             try
             {

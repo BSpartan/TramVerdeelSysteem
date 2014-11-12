@@ -32,6 +32,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tramsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.veranderStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toevoegenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.schoonmaakToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reparatieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.afsluitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,7 +60,6 @@
             this.btnSimulation = new System.Windows.Forms.Button();
             this.tSimulation = new System.Windows.Forms.Timer(this.components);
             this.btnEndSimulation = new System.Windows.Forms.Button();
-            this.toevoegenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.pnlTrack.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -95,6 +95,13 @@
             this.veranderStatusToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.veranderStatusToolStripMenuItem.Text = "Verander status";
             this.veranderStatusToolStripMenuItem.Click += new System.EventHandler(this.veranderStatusToolStripMenuItem_Click);
+            // 
+            // toevoegenToolStripMenuItem
+            // 
+            this.toevoegenToolStripMenuItem.Name = "toevoegenToolStripMenuItem";
+            this.toevoegenToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.toevoegenToolStripMenuItem.Text = "Toevoegen";
+            this.toevoegenToolStripMenuItem.Click += new System.EventHandler(this.AddTram);
             // 
             // schoonmaakToolStripMenuItem
             // 
@@ -206,7 +213,7 @@
             // btnDeleteReservation
             // 
             this.btnDeleteReservation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteReservation.Location = new System.Drawing.Point(42, 539);
+            this.btnDeleteReservation.Location = new System.Drawing.Point(42, 472);
             this.btnDeleteReservation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDeleteReservation.Name = "btnDeleteReservation";
             this.btnDeleteReservation.Size = new System.Drawing.Size(31, 31);
@@ -218,7 +225,7 @@
             // btnAddReservation
             // 
             this.btnAddReservation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddReservation.Location = new System.Drawing.Point(6, 539);
+            this.btnAddReservation.Location = new System.Drawing.Point(5, 472);
             this.btnAddReservation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddReservation.Name = "btnAddReservation";
             this.btnAddReservation.Size = new System.Drawing.Size(31, 31);
@@ -236,7 +243,7 @@
             this.lbReservations.Location = new System.Drawing.Point(5, 32);
             this.lbReservations.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbReservations.Name = "lbReservations";
-            this.lbReservations.Size = new System.Drawing.Size(217, 500);
+            this.lbReservations.Size = new System.Drawing.Size(217, 436);
             this.lbReservations.TabIndex = 0;
             // 
             // ContextMenu
@@ -336,18 +343,11 @@
             this.btnEndSimulation.UseVisualStyleBackColor = true;
             this.btnEndSimulation.Click += new System.EventHandler(this.btnEndSimulation_Click);
             // 
-            // toevoegenToolStripMenuItem
-            // 
-            this.toevoegenToolStripMenuItem.Name = "toevoegenToolStripMenuItem";
-            this.toevoegenToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.toevoegenToolStripMenuItem.Text = "Toevoegen";
-            this.toevoegenToolStripMenuItem.Click += new System.EventHandler(this.AddTram);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1273, 804);
+            this.ClientSize = new System.Drawing.Size(1273, 800);
             this.Controls.Add(this.btnEndSimulation);
             this.Controls.Add(this.btnSimulation);
             this.Controls.Add(this.groupBox1);

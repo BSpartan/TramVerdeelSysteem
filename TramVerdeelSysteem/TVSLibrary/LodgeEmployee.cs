@@ -75,7 +75,7 @@ namespace TVSLibrary
         /// <param name="tram">Tram to be cleaned</param>
         public void SendTramToCleaning(Tram tram)
         {
-            tram.SendToCleaning();
+            tram.AddMaintenace(tram, true, false);
         }
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace TVSLibrary
         /// <param name="tram">Tram to be repaired</param>
         public void SendTramToRepair(Tram tram)
         {
-            tram.SendToRepair();
+            tram.AddMaintenace(tram, false, true);
         }
     }
 }
